@@ -13,7 +13,7 @@ function App() {
         <div className=" bg-black bg-opacity-50 py-2 w-full text-white"><div className="text-4xl">Dogs: 0</div>
         <div className="text-xl mt-2">Dogs per second: 0</div></div>
         <div className="flex justify-center h-1/3">
-          <img src={dog1} alt="dog" className="h-3/4  " />
+          <img src={dog1} alt="dog" className="h-full  " />
         </div>
 
         <div className="text-5xl"> CLICK THE DOG</div>
