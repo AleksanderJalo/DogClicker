@@ -2,21 +2,15 @@ import "./App.css";
 import dog1 from "./images/dog1.png";
 function App() {
   return (
-    <div className="App h-screen w-full">
-      <div className="h-full w-1/3  border-r-8 border-black bg-[#F3D250] flex-col justify-start gap-12 flex">
-        <div className="w-full flex justify-center">
-          <div className=" bg-black bg-opacity-25 p-2 w-1/2 rounded-xl text-2xl mt-6">
-            Your Name Shelter
-          </div>
+    <div className="App h-screen w-full flex flex-col">
+      <div className="h-[10vh] w-full flex text-4xl text-white bg-black justify-center items-center">DOGGO CLICKER</div>
+      <div className="h-[90vh] flex">
+        <div className="w-1/3 bg-[#F3D250] border-r-8 border-black flex flex-col items-center gap-12">
+          <div className="w-1/3 bg-black bg-opacity-25 text-white rounded-xl p-3 mt-6 text-xl">Your Doggo Farm</div>
+          <div className="w-full bg-black bg-opacity-40 text-white py-3 text-2xl">0 Dogs</div>
         </div>
-
-        <div className=" bg-black bg-opacity-50 py-2 w-full text-white"><div className="text-4xl">Dogs: 0</div>
-        <div className="text-xl mt-2">Dogs per second: 0</div></div>
-        <div className="flex justify-center h-1/3">
-          <img src={dog1} alt="dog" className="h-full  " />
-        </div>
-
-        <div className="text-5xl"> CLICK THE DOG</div>
+        <div className="w-1/3 bg-[#90CCF4] border-r-8 border-black">bbbb</div>
+        <div className="w-1/3 bg-[#F78888]">cccc</div>
       </div>
     </div>
   );
