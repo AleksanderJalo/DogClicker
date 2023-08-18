@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import theo from "./images/dog1.png";
 import grass from "./images/trawa.png";
+import dirt from "./images/ziemia2.png";
 function App() {
   const [doggos, setDoggos] = useState(0);
   const doggoClickHandler = () => {
@@ -43,7 +44,7 @@ function App() {
           </div>
         </div>
 
-        <div className="w-1/3 bg-[#90CCF4] border-r-8 border-black flex flex-col gap-6 items-center">
+        <div className="w-1/3 bg-[#F78888] border-r-8 border-black flex flex-col  items-center">
           <div className="h-1/4 w-full flex flex-col items-center gap-4">
             <div className="w-1/2 rounded-xl bg-black bg-opacity-25 text-white text-xl xl:text-3xl p-3 mt-6">
               Your Workers
@@ -69,14 +70,39 @@ function App() {
                 alt="grass"
                 className="border-t-4 border-b-4 border-black"
               />
-            </div>
+            </div >
+            
           </div>
+          <div className="w-full flex overflow-hidden  h-[8vh]"> <img
+                src={dirt}
+                alt="grass"
+                className="border-t-4 border-b-4 border-black"
+              />
+              <img
+                src={dirt}
+                alt="grass"
+                className="border-t-4 border-b-4 border-black"
+              />
+              <img
+                src={dirt}
+                alt="grass"
+                className="border-t-4 border-b-4 border-black"
+              />
+              <img
+                src={dirt}
+                alt="grass"
+                className="border-t-4 border-b-4 border-black"
+              /></div>
         </div>
+        
 
-        <div className="w-1/3 bg-[#F78888]">
+        <div className="w-1/3 bg-[#90CCF4]">
           <div className="h-1/4 w-full flex flex-col items-center gap-4">
           <div className="w-1/2 rounded-xl bg-black bg-opacity-25 text-white text-xl xl:text-3xl p-3 mt-6">
               Shop
+            </div>
+            <div className="w-full flex">
+              <div className=" border-black border-2">a</div>
             </div>
         </div>
         </div>
