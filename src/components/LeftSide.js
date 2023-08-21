@@ -24,11 +24,11 @@ const LeftSide = () => {
         <img
           src={theo}
           alt="Theo"
-          className="mr-8 h-4/5"
+          className="mr-8 h-full p-2"
           onClick={doggoClickHandler}
         />
       </div>
-      <img src={tosia} alt="Tosia" className="absolute bottom-2 right-8 h-[10vh]"/>
+      <img src={tosia} alt="Tosia" className="absolute bottom-4 right-8 h-[10vh]"/>
     </div>
   );
 };
