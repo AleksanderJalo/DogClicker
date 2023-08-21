@@ -19,7 +19,7 @@ const LeftSide = () => {
         <div className=" text-xl">per second: 0.0 </div>
       </div>
 
-      <div className="flex flex-col h-[68vh] justify-center">
+      <div className="flex flex-col h-[68vh] justify-center pb-12">
         <img
           src={theo}
           alt="Theo"

@@ -9,7 +9,7 @@ const MiddleSide = () => {
           Your Workers
         </div>
       </div>
-      <div className="h-1/4 w-full flex flex-col items-center gap-4">
+      <div className="h-[80vh]">
         <div className=" w-full flex overflow-hidden  h-[8vh]">
           <img
             src={grass}
@@ -32,29 +32,119 @@ const MiddleSide = () => {
             className="border-t-4 border-b-4 border-black"
           />
         </div>
-      </div>
-      <div className="w-full flex overflow-hidden  h-[8vh]">
-        {" "}
-        <img
-          src={dirt}
-          alt="grass"
-          className="border-t-4 border-b-4 border-black"
-        />
-        <img
-          src={dirt}
-          alt="grass"
-          className="border-t-4 border-b-4 border-black"
-        />
-        <img
-          src={dirt}
-          alt="grass"
-          className="border-t-4 border-b-4 border-black"
-        />
-        <img
-          src={dirt}
-          alt="grass"
-          className="border-t-4 border-b-4 border-black"
-        />
+        <div className="w-full flex overflow-hidden  h-[8vh] mt-6">
+          {" "}
+          <img
+            src={dirt}
+            alt="grass"
+            className="border-t-4 border-b-4 border-black"
+          />
+          <img
+            src={dirt}
+            alt="grass"
+            className="border-t-4 border-b-4 border-black"
+          />
+          <img
+            src={dirt}
+            alt="grass"
+            className="border-t-4 border-b-4 border-black"
+          />
+          <img
+            src={dirt}
+            alt="grass"
+            className="border-t-4 border-b-4 border-black"
+          />
+        </div>
+        <div className=" w-full flex overflow-hidden  h-[8vh] mt-6">
+          <img
+            src={grass}
+            alt="grass"
+            className="border-t-4 border-b-4 border-black"
+          />
+          <img
+            src={grass}
+            alt="grass"
+            className="border-t-4 border-b-4 border-black"
+          />
+          <img
+            src={grass}
+            alt="grass"
+            className="border-t-4 border-b-4 border-black"
+          />
+          <img
+            src={grass}
+            alt="grass"
+            className="border-t-4 border-b-4 border-black"
+          />
+        </div>
+        <div className="w-full flex overflow-hidden  h-[8vh] mt-6">
+          {" "}
+          <img
+            src={dirt}
+            alt="grass"
+            className="border-t-4 border-b-4 border-black"
+          />
+          <img
+            src={dirt}
+            alt="grass"
+            className="border-t-4 border-b-4 border-black"
+          />
+          <img
+            src={dirt}
+            alt="grass"
+            className="border-t-4 border-b-4 border-black"
+          />
+          <img
+            src={dirt}
+            alt="grass"
+            className="border-t-4 border-b-4 border-black"
+          />
+        </div>
+        <div className=" w-full flex overflow-hidden  h-[8vh] mt-6">
+          <img
+            src={grass}
+            alt="grass"
+            className="border-t-4 border-b-4 border-black"
+          />
+          <img
+            src={grass}
+            alt="grass"
+            className="border-t-4 border-b-4 border-black"
+          />
+          <img
+            src={grass}
+            alt="grass"
+            className="border-t-4 border-b-4 border-black"
+          />
+          <img
+            src={grass}
+            alt="grass"
+            className="border-t-4 border-b-4 border-black"
+          />
+        </div>
+        <div className="w-full flex overflow-hidden  h-[8vh] mt-6">
+          {" "}
+          <img
+            src={dirt}
+            alt="grass"
+            className="border-t-4 border-b-4 border-black"
+          />
+          <img
+            src={dirt}
+            alt="grass"
+            className="border-t-4 border-b-4 border-black"
+          />
+          <img
+            src={dirt}
+            alt="grass"
+            className="border-t-4 border-b-4 border-black"
+          />
+          <img
+            src={dirt}
+            alt="grass"
+            className="border-t-4 border-b-4 border-black"
+          />
+        </div>
       </div>
     </div>
   );
