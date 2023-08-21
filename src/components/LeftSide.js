@@ -1,13 +1,14 @@
 import React from "react";
 import theo from "../images/dog1.png";
 import { useState } from "react";
+import tosia from "../images/dog4.png";
 const LeftSide = () => {
   const [doggos, setDoggos] = useState(0);
   const doggoClickHandler = () => {
     setDoggos((prev) => prev + 1);
   };
   return (
-    <div className="w-1/3 bg-[#F3D250] border-r-8 border-black flex flex-col items-center">
+    <div className="w-1/3 bg-[#F3D250] border-r-8 border-black flex flex-col items-center relative">
       <div className="h-[10vh] w-full flex items-center justify-center">
         <div className="w-1/2 h-3/5  bg-black bg-opacity-25 text-white rounded-xl  text-xl xl:text-3xl flex items-center justify-center">
           Your Doggo Farm
@@ -19,7 +20,7 @@ const LeftSide = () => {
         <div className=" text-xl">CLICK - 1 DOG</div>
       </div>
 
-      <div className="flex flex-col h-[68vh] justify-center pb-">
+      <div className="flex flex-col h-[65vh] justify-center pb-">
         <img
           src={theo}
           alt="Theo"
@@ -27,6 +28,7 @@ const LeftSide = () => {
           onClick={doggoClickHandler}
         />
       </div>
+      <img src={tosia} alt="Tosia" className="absolute bottom-2 right-8 h-[10vh]"/>
     </div>
   );
 };

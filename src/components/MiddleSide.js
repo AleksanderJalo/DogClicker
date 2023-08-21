@@ -10,7 +10,7 @@ const MiddleSide = () => {
           Your Workers
         </div>
       </div>
-      <div className="h-[80vh]">
+      <div className="h-[60vh]">
         <div className="h-[8vh] w-full bg-black bg-opacity-50 flex justify-center items-center">
           <div className=" text-3xl text-white ">0 per Seconds</div>
         </div>
