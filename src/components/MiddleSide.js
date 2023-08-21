@@ -1,6 +1,7 @@
 import React from "react";
 import grass from "../images/trawa.png";
 import dirt from "../images/ziemia2.png";
+import dirt2 from "../images/ground3.png";
 const MiddleSide = () => {
   return (
     <div className="w-1/3 bg-[#F78888]  flex flex-col  items-center">
@@ -10,7 +11,10 @@ const MiddleSide = () => {
         </div>
       </div>
       <div className="h-[80vh]">
-        <div className=" w-full flex overflow-hidden  h-[8vh]">
+        <div className="h-[8vh] w-full bg-black bg-opacity-50 flex justify-center items-center">
+          <div className=" text-3xl text-white ">0 per Seconds</div>
+        </div>
+        <div className=" w-full flex overflow-hidden mt-6 h-[8vh]">
           <img
             src={grass}
             alt="grass"
@@ -57,22 +61,22 @@ const MiddleSide = () => {
         </div>
         <div className=" w-full flex overflow-hidden  h-[8vh] mt-6">
           <img
-            src={grass}
+            src={dirt2}
             alt="grass"
             className="border-t-4 border-b-4 border-black"
           />
           <img
-            src={grass}
+            src={dirt2}
             alt="grass"
             className="border-t-4 border-b-4 border-black"
           />
           <img
-            src={grass}
+            src={dirt2}
             alt="grass"
             className="border-t-4 border-b-4 border-black"
           />
           <img
-            src={grass}
+            src={dirt2}
             alt="grass"
             className="border-t-4 border-b-4 border-black"
           />
@@ -80,44 +84,44 @@ const MiddleSide = () => {
         <div className="w-full flex overflow-hidden  h-[8vh] mt-6">
           {" "}
           <img
-            src={dirt}
+            src={grass}
             alt="grass"
             className="border-t-4 border-b-4 border-black"
           />
           <img
-            src={dirt}
+            src={grass}
             alt="grass"
             className="border-t-4 border-b-4 border-black"
           />
           <img
-            src={dirt}
+            src={grass}
             alt="grass"
             className="border-t-4 border-b-4 border-black"
           />
           <img
-            src={dirt}
+            src={grass}
             alt="grass"
             className="border-t-4 border-b-4 border-black"
           />
         </div>
         <div className=" w-full flex overflow-hidden  h-[8vh] mt-6">
           <img
-            src={grass}
+            src={dirt}
             alt="grass"
             className="border-t-4 border-b-4 border-black"
           />
           <img
-            src={grass}
+            src={dirt}
             alt="grass"
             className="border-t-4 border-b-4 border-black"
           />
           <img
-            src={grass}
+            src={dirt}
             alt="grass"
             className="border-t-4 border-b-4 border-black"
           />
           <img
-            src={grass}
+            src={dirt}
             alt="grass"
             className="border-t-4 border-b-4 border-black"
           />
@@ -125,22 +129,22 @@ const MiddleSide = () => {
         <div className="w-full flex overflow-hidden  h-[8vh] mt-6">
           {" "}
           <img
-            src={dirt}
+            src={dirt2}
             alt="grass"
             className="border-t-4 border-b-4 border-black"
           />
           <img
-            src={dirt}
+            src={dirt2}
             alt="grass"
             className="border-t-4 border-b-4 border-black"
           />
           <img
-            src={dirt}
+            src={dirt2}
             alt="grass"
             className="border-t-4 border-b-4 border-black"
           />
           <img
-            src={dirt}
+            src={dirt2}
             alt="grass"
             className="border-t-4 border-b-4 border-black"
           />

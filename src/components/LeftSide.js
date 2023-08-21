@@ -14,12 +14,12 @@ const LeftSide = () => {
         </div>
       </div>
 
-      <div className="w-full h-[8vh] bg-black bg-opacity-40 text-white py-3">
-        <div className=" text-3xl">{doggos} Doggos</div>
-        <div className=" text-xl">per second: 0.0 </div>
+      <div className="w-full h-[8vh] bg-black bg-opacity-40 text-white py-3 flex flex-col justify-center items-center">
+        <div className=" text-3xl">{doggos} DOGGOS</div>
+        <div className=" text-xl">CLICK - 1 DOG</div>
       </div>
 
-      <div className="flex flex-col h-[68vh] justify-center pb-12">
+      <div className="flex flex-col h-[68vh] justify-center pb-">
         <img
           src={theo}
           alt="Theo"
