@@ -37,7 +37,7 @@ const RightSide = () => {
         />
         <div>Doberman</div>
         <div>0</div>
-      </div>
+      </div> 
       <div className="w-[90%] h-[8vh]  bg-[#D9D9D9] mt-6 border-8 border-[#988D94] flex items-center px-3 justify-between">
         <img
           src={brownWhiteDogAnimation}

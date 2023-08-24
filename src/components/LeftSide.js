@@ -4,9 +4,11 @@ import { useState } from "react";
 import tosia from "../images/dog4.png";
 const LeftSide = () => {
   const [doggos, setDoggos] = useState(0);
-  const doggoClickHandler = () => {
+
+  const onDogClick = (event) => {
     setDoggos((prev) => prev + 1);
   };
+
   return (
     <div className="w-1/3 bg-[#F3D250] border-r-8 border-black flex flex-col items-center relative">
       <div className="h-[10vh] w-full flex items-center justify-center">
@@ -22,13 +24,18 @@ const LeftSide = () => {
 
       <div className="flex flex-col h-[65vh] justify-center pb-">
         <img
+          onClick={onDogClick}
           src={theo}
           alt="Theo"
           className="mr-8 h-full p-2"
-          onClick={doggoClickHandler}
+          s
         />
       </div>
-      <img src={tosia} alt="Tosia" className="absolute bottom-4 right-8 h-[10vh]"/>
+      <img
+        src={tosia}
+        alt="Tosia"
+        className="absolute bottom-4 right-8 h-[10vh]"
+      />
     </div>
   );
 };
