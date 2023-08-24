@@ -2,11 +2,19 @@ import React from "react";
 import theo from "../images/dog1.png";
 import { useState } from "react";
 import tosia from "../images/dog4.png";
+import DoggoClickText from "./DoggoClickText";
+import { motion } from "framer-motion";
 const LeftSide = () => {
   const [doggos, setDoggos] = useState(0);
-
+  const [clickTexts, setClickTexts] = useState([]);
   const onDogClick = (event) => {
     setDoggos((prev) => prev + 1);
+    const containerBounds = event.currentTarget.getBoundingClientRect();
+    const x = event.clientX - containerBounds.left;
+    const y = event.clientY - containerBounds.top;
+
+    const newText = { x, y };
+    setClickTexts((prevTexts) => [...prevTexts, newText]);
   };
 
   return (
@@ -22,18 +30,28 @@ const LeftSide = () => {
         <div className=" text-xl">CLICK - 1 DOG</div>
       </div>
 
-      <div className="flex flex-col h-[65vh] justify-center pb-">
-        <img
-          onClick={onDogClick}
-          src={theo}
-          alt="Theo"
-          className="mr-8 h-full p-2"
-          s
-        />
+      <div
+        className="flex flex-col h-[65vh] justify-center relative"
+        onClick={onDogClick}
+      >
+        {clickTexts.map((event, index) => {
+          return (
+            <motion.div
+              animate={{ y: -250, opacity:[1, 0.8, 0.6 ,0.3, 0] }} 
+              transition={{duration: 1}}
+              key={index}
+              className="absolute"
+              style={{ left: `${event.x}px`, top: `${event.y}px` }} 
+            >
+              <DoggoClickText />
+            </motion.div>
+          ); 
+        })}
+        <img src={theo} alt="Theo" className="mr-8 h-full p-2" s />
       </div>
       <img
         src={tosia}
-        alt="Tosia"
+        alt="Tosia" 
         className="absolute bottom-4 right-8 h-[10vh]"
       />
     </div>

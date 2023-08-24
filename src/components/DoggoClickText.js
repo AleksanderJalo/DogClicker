@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 const DoggoClickText = () => {
   const [isVisible, setIsVisible] = useState(true);
     useEffect(() => {
-      console.log("aaa")
     const timer = setTimeout(() => {
       setIsVisible(false);
     }, 1000);
@@ -13,7 +12,7 @@ const DoggoClickText = () => {
     };
   },[]);
   return (
-    <React.Fragment>{isVisible ? <div className="bg-white text-8xl" >+1</div> : null}</React.Fragment>
+    <React.Fragment>{isVisible ? <div className="text-4xl text-white" >+1</div> : null}</React.Fragment>
   );
 };
 
