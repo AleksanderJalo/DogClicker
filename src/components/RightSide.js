@@ -1,12 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import mouseBooth from "../images/upgrade art/mouse_booth.png";
 import goldenDogAnimation from "../images/upgrade art/Dog_Idle_Animation.gif";
 import brownWhiteDogAnimation from "../images/upgrade art/Dog_Idle_brown_white.gif";
 import dobermanDogWalkAnimation from "../images/upgrade art/Dog_2_Walk.gif";
 import Upgrade from "./Upgrade";
 const RightSide = () => {
-  const [goldenDogPrice, setGoldenDogPrice] = useState(15);
-
   return (
     <div className="w-1/3 bg-[#90CCF4] border-l-8 border-black flex flex-col  items-center">
       <div className="h-[10vh] w-full flex items-center justify-center">

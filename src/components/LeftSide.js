@@ -4,16 +4,16 @@ import { useState } from "react";
 import tosia from "../images/dog4.png";
 import DoggoClickText from "./DoggoClickText";
 import { motion } from "framer-motion";
-const LeftSide = () => {
-  const [doggos, setDoggos] = useState(0);
+const LeftSide = (props) => {
   const [clickTexts, setClickTexts] = useState([]);
   const onDogClick = (event) => {
-    setDoggos((prev) => prev + 1);
+    props.onDogClick();
+
     const containerBounds = event.currentTarget.getBoundingClientRect();
     const x = event.clientX - containerBounds.left;
     const y = event.clientY - containerBounds.top;
-
     const newText = { x, y };
+
     setClickTexts((prevTexts) => [...prevTexts, newText]);
   };
 
@@ -26,7 +26,7 @@ const LeftSide = () => {
       </div>
 
       <div className="w-full h-[8vh] bg-black bg-opacity-40 text-white py-3 flex flex-col justify-center items-center">
-        <div className=" text-3xl">{doggos} DOGGOS</div>
+        <div className=" text-3xl">{props.doggosNumber} DOGGOS</div>
         <div className=" text-xl">CLICK - 1 DOG</div>
       </div>
 
