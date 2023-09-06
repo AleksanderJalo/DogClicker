@@ -3,6 +3,7 @@ import mouseBooth from "../images/upgrade art/mouse_booth.png";
 import goldenDogAnimation from "../images/upgrade art/Dog_Idle_Animation.gif";
 import brownWhiteDogAnimation from "../images/upgrade art/Dog_Idle_brown_white.gif";
 import dobermanDogWalkAnimation from "../images/upgrade art/Dog_2_Walk.gif";
+import PowerUp from "./PowerUp";
 import Upgrade from "./Upgrade";
 const RightSide = () => {
   return (
@@ -13,13 +14,11 @@ const RightSide = () => {
         </div>
       </div>
 
-      <div className="w-full bg-black bg-opacity-50 border-t-4 border-b-4 border-black flex justify-between items-center px-4 h-[8vh] overflow-hidden flex-wrap">
-        <img src={mouseBooth} alt="powerup" className="h-3/4" />
-        <img src={mouseBooth} alt="powerup" className="h-3/4" />
-        <img src={mouseBooth} alt="powerup" className="h-3/4" />
-        <img src={mouseBooth} alt="powerup" className="h-3/4" />
-        <img src={mouseBooth} alt="powerup" className="h-3/4" />
-        <img src={mouseBooth} alt="powerup" className="h-3/4" />
+      <div className="w-full bg-black bg-opacity-50 border-t-4 border-b-4 border-black flex justify-between items-center px-4 h-[8vh] flex-wrap">
+        <PowerUp image={mouseBooth} name="Double Click" />
+        <PowerUp image={mouseBooth} name="Double Click" />
+        <PowerUp image={mouseBooth} name="Double Click" />
+        <PowerUp image={mouseBooth} name="Double Click" />
       </div>
       <Upgrade
         image={goldenDogAnimation}
