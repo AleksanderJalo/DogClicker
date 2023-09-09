@@ -18,6 +18,9 @@ const RightSide = () => {
         <PowerUp image={mouseBooth} name="Double Click" description="You're clicks are twice as effective!"/>
         <PowerUp image={mouseBooth} name="Double Click" description="You're clicks are twice as effective!"/>
         <PowerUp image={mouseBooth} name="Double Click" description="You're clicks are twice as effective!"/>
+        <PowerUp image={mouseBooth} name="Double Click" description="You're clicks are twice as effective!" />
+        <PowerUp image={mouseBooth} name="Double Click" description="You're clicks are twice as effective!" />
+        <PowerUp image={mouseBooth} name="Double Click" description="You're clicks are twice as effective!" />
         <PowerUp image={mouseBooth} name="Double Click" description="You're clicks are twice as effective!"/>
       </div>
       <Upgrade
