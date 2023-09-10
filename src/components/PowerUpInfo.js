@@ -1,4 +1,6 @@
-export const getPowerUpInfo = (id) => {
+
+
+const getPowerUpInfo = (id) => {
   switch (id) {
     case 0:
       return { name: "Double Click", description: "Your Clicks are doubled!" };
@@ -16,3 +18,4 @@ export const getPowerUpInfo = (id) => {
             return { name: "Double Brown Dogs", description: "Your Brown Dogs make twice as much!" };
   }
 };
+export default getPowerUpInfo;

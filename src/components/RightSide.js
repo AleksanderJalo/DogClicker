@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import mouseBooth from "../images/upgrade art/mouse_booth.png";
 import goldenDogAnimation from "../images/upgrade art/Dog_Idle_Animation.gif";
 import brownWhiteDogAnimation from "../images/upgrade art/Dog_Idle_brown_white.gif";
@@ -6,8 +6,8 @@ import dobermanDogWalkAnimation from "../images/upgrade art/Dog_2_Walk.gif";
 import PowerUp from "./PowerUp";
 import Upgrade from "./Upgrade";
 const RightSide = () => {
-  const onPowerUpHover = (id) => {console.log(id)};
-  const offPowerUpHover = (id) => {};
+  const [initialClickCost, setInitialClickCost] = useState(100);
+
   return (
     <div className="w-1/3 bg-[#90CCF4] border-l-8 border-black flex flex-col  items-center">
       <div className="h-[10vh] w-full flex items-center justify-center">
@@ -17,30 +17,10 @@ const RightSide = () => {
       </div>
 
       <div className="w-full bg-black bg-opacity-50 border-t-4 border-b-4 border-black flex justify-between items-center px-4 h-[8vh] flex-wrap">
-        <PowerUp
-          image={mouseBooth}
-          id={0}
-          onPowerUpHover={onPowerUpHover}
-          offPowerUpHover={offPowerUpHover}
-        />
-        <PowerUp
-          image={mouseBooth}
-          id={1}
-          onPowerUpHover={onPowerUpHover}
-          offPowerUpHover={offPowerUpHover}
-        />
-        <PowerUp
-          image={mouseBooth}
-          id={2}
-          onPowerUpHover={onPowerUpHover}
-          offPowerUpHover={offPowerUpHover}
-        />
-        <PowerUp
-          image={mouseBooth}
-          id={3}
-          onPowerUpHover={onPowerUpHover}
-          offPowerUpHover={offPowerUpHover}
-        />
+        <PowerUp image={mouseBooth} id={0} />
+        <PowerUp image={mouseBooth} id={1}/>
+        <PowerUp image={mouseBooth} id={2}/>
+        <PowerUp image={mouseBooth} id={3} />
       </div>
       <Upgrade
         image={goldenDogAnimation}
