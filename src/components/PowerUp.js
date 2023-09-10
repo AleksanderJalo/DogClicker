@@ -9,6 +9,7 @@ const PowerUp = (props) => {
   }, []);
   return (
     <div
+      onClick={props.onClick}
       className="relative h-[100%] flex justify-center items-center "
       onMouseEnter={() => {
         setShowInfo(true);
@@ -18,15 +19,15 @@ const PowerUp = (props) => {
       }}
     >
       {showInfo && (
-        <div className="absolute bottom-16 flex right-10  text-white bg-black w-[15vw] px-3 py-1  border-white border-4">
+        <div className="absolute bottom-16 flex right-10  text-white bg-green-900 w-[15vw] px-3 pt-1 pb-2 border-white border-4 font-barlow">
           <div className="flex flex-col w-full">
             <div className="flex justify-between items-center gap-8 h-[50%] w-full">
-              <div className="text-lg whitespace-nowrap">{info.name}</div>
+              <div className="text-md whitespace-nowrap font-rowdies">{info.name}</div>
               <div className="flex items-center justify-center gap-2  pb-1 h-[50%]">
-                <img src={dog} alt="dog" className="h-[100%]"/>100
+                <img src={dog} alt="dog" className="h-[100%]"/>{props.cost}
               </div>
             </div>
-            <div className="border-t-4 border-[#555454] flex justify-center items-center pt-3 p-2 text-md h-[50%] w-full">
+            <div className="border-t-4 border-[#555454] flex justify-center items-center pt-3 p-2 text-xl h-[50%] w-full">
               {info.description}
             </div>
           </div>

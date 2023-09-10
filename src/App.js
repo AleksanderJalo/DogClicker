@@ -7,9 +7,17 @@ import pegi from "./images/dog2.png";
 import rubi from "./images/dog3.png";
 function App() {
   const [doggos, setDoggos] = useState(0);
+  const [clickAdd, setClickAdd] = useState(1);
   const onDoggoClick = () => {
-    setDoggos((prev) => prev + 1);
+    setDoggos((prev) => prev + clickAdd);
+  };
+  const betterClick = () => {
+    setClickAdd((prev) => prev * 2);
   }
+
+  const deleteDoggos = (howMany) => {
+    setDoggos((prev) => prev - howMany);
+  };
   return (
     <div className="h-screen w-full flex flex-col font-lalezar text-center select-none">
       <div className="h-[15vh] w-full flex text-6xl text-white bg-black justify-center items-center gap-3 relative">
@@ -29,9 +37,9 @@ function App() {
         </div>
       </div>
       <div className="h-[85vh] flex">
-        <LeftSide doggosNumber={doggos} onDogClick={ onDoggoClick } />
+        <LeftSide doggosNumber={doggos} onDogClick={onDoggoClick} clickAdd={ clickAdd } />
         <MiddleSide />
-        <RightSide />
+        <RightSide doggosNumber={doggos} deleteDoggos={deleteDoggos} betterClick={betterClick} />
       </div>
     </div>
   );

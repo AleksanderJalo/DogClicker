@@ -43,7 +43,7 @@ const LeftSide = (props) => {
               className="absolute"
               style={{ left: `${event.x}px`, top: `${event.y}px` }} 
             >
-              <DoggoClickText />
+              <DoggoClickText clickAdd={props.clickAdd} />
             </motion.div>
           ); 
         })}

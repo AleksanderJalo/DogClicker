@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const DoggoClickText = () => {
+const DoggoClickText = (props) => {
   const [isVisible, setIsVisible] = useState(true);
     useEffect(() => {
     const timer = setTimeout(() => {
@@ -12,7 +12,7 @@ const DoggoClickText = () => {
     };
   },[]);
   return (
-    <React.Fragment>{isVisible ? <div className="text-4xl text-white" >+1</div> : null}</React.Fragment>
+    <React.Fragment>{isVisible ? <div className="text-4xl text-white" >+{props.clickAdd}</div> : null}</React.Fragment>
   );
 };
 

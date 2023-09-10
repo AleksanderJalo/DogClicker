@@ -5,6 +5,8 @@ module.exports = {
     extend: {
       fontFamily: {
         lalezar: ["Lalezar", "sans-serif"],
+        barlow: ["Barlow", "sans-serif"],
+        rowdies: ["Rowdies", "sans-serif"],
       },
     },
   },
