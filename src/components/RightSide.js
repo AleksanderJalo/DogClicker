@@ -1,23 +1,57 @@
-import React, { useState } from "react";
-import mouseBooth from "../images/upgrade art/mouse_booth.png";
+import React, { useState, useEffect } from "react";
+import mouseBoothImage from "../images/upgrade art/mouse_booth.png";
+import doggoUpgradeImage from "../images/upgrade art/goledenDoggoUpgrade.png";
+import dobermanUpgradeImage from "../images/upgrade art/dobermanUpgrade.png";
+import brownDoggoUpgradeImage from "../images/upgrade art/brownDoggoUpgrade.png";
 import goldenDogAnimation from "../images/upgrade art/Dog_Idle_Animation.gif";
 import brownWhiteDogAnimation from "../images/upgrade art/Dog_Idle_brown_white.gif";
 import dobermanDogWalkAnimation from "../images/upgrade art/Dog_2_Walk.gif";
 import PowerUp from "./PowerUp";
 import Upgrade from "./Upgrade";
 const RightSide = (props) => {
+  const [powerUpOpacity, setPowerUpOpacity] = useState([
+    false,
+    false,
+    false,
+    false,
+  ]);
   const [powerUpCost, setPowerUpCost] = useState([10, 100, 1000, 11000]);
   const [upgradeCost, setUpgradeCost] = useState([10, 100, 1100]);
-  const initialUpgradeCost = [10, 100, 11000];
   const [upgradeCps, setUpgradeCps] = useState([0.1, 0.3, 0.5]);
   const [ownedUpgrades, setOwnedUpgrades] = useState([0, 0, 0]);
+
+  useEffect(() => {
+    
+    for (let i = 0; i < powerUpCost.length; i++) {
+      if (props.doggosNumber >= powerUpCost[i]) {
+        let newOpacity = powerUpOpacity;
+        newOpacity[i] = true;
+        setPowerUpOpacity(newOpacity);
+      } else {
+        let newOpacity = powerUpOpacity;
+        newOpacity[i] = false;
+        setPowerUpOpacity(newOpacity);
+      }
+    }
+  });
+
   const buyPowerUp = (id) => {
-    if (props.doggosNumber >= powerUpCost[id]) {
-      props.deleteDoggos(powerUpCost[id]);
-      props.betterClick();
-      let powerUpsCostUpdated = powerUpCost;
-      powerUpsCostUpdated[id] = powerUpsCostUpdated[id] * 4;
-      setPowerUpCost(powerUpsCostUpdated);
+    if (id === 1) {
+      if (props.doggosNumber >= powerUpCost[id]) {
+        props.betterClick();
+        props.deleteDoggos(powerUpCost[id]);
+
+        let powerUpsCostUpdated = powerUpCost;
+        powerUpsCostUpdated[id] = powerUpsCostUpdated[id] * 4;
+        setPowerUpCost(powerUpsCostUpdated);
+      }
+    } else {
+      if (props.doggosNumber >= powerUpCost[id]) {
+        props.deleteDoggos(powerUpCost[id]);
+        let powerUpsCostUpdated = powerUpCost;
+        powerUpsCostUpdated[id] = powerUpsCostUpdated[id] * 4;
+        setPowerUpCost(powerUpsCostUpdated);
+      }
     }
   };
 
@@ -43,16 +77,36 @@ const RightSide = (props) => {
 
       <div className="w-full bg-black bg-opacity-50 border-t-4 border-b-4 border-black flex justify-between items-center px-4 h-[8vh] flex-wrap">
         <PowerUp
-          image={mouseBooth}
+          show={powerUpOpacity[0]}
+          image={mouseBoothImage}
           id={0}
           cost={powerUpCost[0]}
           onClick={() => {
             buyPowerUp(0);
           }}
         />
-        <PowerUp image={mouseBooth} id={1} cost={powerUpCost[1]} />
-        <PowerUp image={mouseBooth} id={2} cost={powerUpCost[2]} />
-        <PowerUp image={mouseBooth} id={3} cost={powerUpCost[3]} />
+        <PowerUp
+          show={powerUpOpacity[1]}
+          image={doggoUpgradeImage}
+          id={1}
+          cost={powerUpCost[1]}
+          onClick={() => {
+            buyPowerUp(1);
+          }}
+          doggos={props.doggosNumber}
+        />
+        <PowerUp
+          show={powerUpOpacity[2]}
+          image={dobermanUpgradeImage}
+          id={2}
+          cost={powerUpCost[2]}
+        />
+        <PowerUp
+          show={powerUpOpacity[3]}
+          image={brownDoggoUpgradeImage}
+          id={3}
+          cost={powerUpCost[3]}
+        />
       </div>
       <Upgrade
         image={goldenDogAnimation}

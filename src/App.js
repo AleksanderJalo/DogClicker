@@ -29,7 +29,7 @@ function App() {
 
   const onUpgradeBuy = (newDoggosPerSecond) => {
     setDoggosPerSecond(prev => prev + newDoggosPerSecond);
-    console.log(doggosPerSecond);''
+
   }
   return (
     <div className="h-screen w-full flex flex-col font-lalezar text-center select-none">
