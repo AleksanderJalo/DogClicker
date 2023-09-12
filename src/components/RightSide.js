@@ -15,13 +15,13 @@ const RightSide = (props) => {
     false,
     false,
   ]);
+  const [upgradeMultipler, setUpgradeMultpler] = useState([1, 1, 1, 1]);
   const [powerUpCost, setPowerUpCost] = useState([10, 100, 1000, 11000]);
   const [upgradeCost, setUpgradeCost] = useState([10, 100, 1100]);
   const [upgradeCps, setUpgradeCps] = useState([0.1, 0.3, 0.5]);
   const [ownedUpgrades, setOwnedUpgrades] = useState([0, 0, 0]);
 
   useEffect(() => {
-    
     for (let i = 0; i < powerUpCost.length; i++) {
       if (props.doggosNumber >= powerUpCost[i]) {
         let newOpacity = powerUpOpacity;
@@ -36,7 +36,7 @@ const RightSide = (props) => {
   });
 
   const buyPowerUp = (id) => {
-    if (id === 1) {
+    if (id === 0) {
       if (props.doggosNumber >= powerUpCost[id]) {
         props.betterClick();
         props.deleteDoggos(powerUpCost[id]);
@@ -51,6 +51,7 @@ const RightSide = (props) => {
         let powerUpsCostUpdated = powerUpCost;
         powerUpsCostUpdated[id] = powerUpsCostUpdated[id] * 4;
         setPowerUpCost(powerUpsCostUpdated);
+        props.onUpgradeBuy(ownedUpgrades[id] * 0.1 * upgradeMultipler[id]);
       }
     }
   };
@@ -58,7 +59,7 @@ const RightSide = (props) => {
   const buyUpgrade = (id) => {
     if (props.doggosNumber >= Math.floor(upgradeCost[id])) {
       props.deleteDoggos(Math.floor(upgradeCost[id]));
-      props.onUpgradeBuy(upgradeCps[id]);
+      props.onUpgradeBuy(upgradeCps[id] * upgradeMultipler[id]);
       let upgradeCostUpdated = upgradeCost;
       upgradeCostUpdated[id] = upgradeCostUpdated[id] * 1.15;
       setUpgradeCost(upgradeCostUpdated);
@@ -93,7 +94,6 @@ const RightSide = (props) => {
           onClick={() => {
             buyPowerUp(1);
           }}
-          doggos={props.doggosNumber}
         />
         <PowerUp
           show={powerUpOpacity[2]}
@@ -122,6 +122,9 @@ const RightSide = (props) => {
         text={"Doberman"}
         cost={Math.floor(upgradeCost[1])}
         number={ownedUpgrades[1]}
+        onClick={() => {
+          buyUpgrade(1);
+        }}
       />
       <Upgrade
         image={brownWhiteDogAnimation}
