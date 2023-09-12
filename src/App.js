@@ -28,7 +28,8 @@ function App() {
   };
 
   const onUpgradeBuy = (newDoggosPerSecond) => {
-    setDoggosPerSecond(prev => prev +  newDoggosPerSecond);
+    setDoggosPerSecond(prev => prev + newDoggosPerSecond);
+    console.log(doggosPerSecond);''
   }
   return (
     <div className="h-screen w-full flex flex-col font-lalezar text-center select-none">
@@ -50,7 +51,7 @@ function App() {
       </div>
       <div className="h-[85vh] flex">
         <LeftSide doggosNumber={doggos} onDogClick={onDoggoClick} clickAdd={ clickAdd } />
-        <MiddleSide dogggosPerSecond={ doggosPerSecond} />
+        <MiddleSide doggosPerSecond={ doggosPerSecond} />
         <RightSide doggosNumber={doggos} deleteDoggos={deleteDoggos} betterClick={betterClick} onUpgradeBuy={ onUpgradeBuy } />
       </div>
     </div>

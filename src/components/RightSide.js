@@ -8,7 +8,7 @@ import Upgrade from "./Upgrade";
 const RightSide = (props) => {
   const [powerUpCost, setPowerUpCost] = useState([10, 100, 1000, 11000]);
   const [upgradeCost, setUpgradeCost] = useState([10, 100, 1100]);
-  const initialUpgradeCost = [10,100,11000]
+  const initialUpgradeCost = [10, 100, 11000];
   const [upgradeCps, setUpgradeCps] = useState([0.1, 0.3, 0.5]);
   const [ownedUpgrades, setOwnedUpgrades] = useState([0, 0, 0]);
   const buyPowerUp = (id) => {
@@ -22,13 +22,16 @@ const RightSide = (props) => {
   };
 
   const buyUpgrade = (id) => {
-    props.onUpgradeBuy(upgradeCps[id]);
-    let upgradeCostUpdated = upgradeCost;
-    upgradeCostUpdated[id] = upgradeCostUpdated[id] * 1.15
-    setUpgradeCost(upgradeCostUpdated);
-    let ownedUpdatesUpdated = ownedUpgrades;
-    ownedUpdatesUpdated[id] += 1;
-    setOwnedUpgrades(ownedUpdatesUpdated);
+    if (props.doggosNumber >= Math.floor(upgradeCost[id])) {
+      props.deleteDoggos(Math.floor(upgradeCost[id]));
+      props.onUpgradeBuy(upgradeCps[id]);
+      let upgradeCostUpdated = upgradeCost;
+      upgradeCostUpdated[id] = upgradeCostUpdated[id] * 1.15;
+      setUpgradeCost(upgradeCostUpdated);
+      let ownedUpdatesUpdated = ownedUpgrades;
+      ownedUpdatesUpdated[id] += 1;
+      setOwnedUpgrades(ownedUpdatesUpdated);
+    }
   };
   return (
     <div className="w-1/3 bg-[#90CCF4] border-l-8 border-black flex flex-col  items-center">
