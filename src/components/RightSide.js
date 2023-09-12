@@ -8,6 +8,9 @@ import Upgrade from "./Upgrade";
 const RightSide = (props) => {
   const [powerUpCost, setPowerUpCost] = useState([10, 100, 1000, 11000]);
   const [upgradeCost, setUpgradeCost] = useState([10, 100, 1100]);
+  const initialUpgradeCost = [10,100,11000]
+  const [upgradeCps, setUpgradeCps] = useState([0.1, 0.3, 0.5]);
+  const [ownedUpgrades, setOwnedUpgrades] = useState([0, 0, 0]);
   const buyPowerUp = (id) => {
     if (props.doggosNumber >= powerUpCost[id]) {
       props.deleteDoggos(powerUpCost[id]);
@@ -16,6 +19,16 @@ const RightSide = (props) => {
       powerUpsCostUpdated[id] = powerUpsCostUpdated[id] * 4;
       setPowerUpCost(powerUpsCostUpdated);
     }
+  };
+
+  const buyUpgrade = (id) => {
+    props.onUpgradeBuy(upgradeCps[id]);
+    let upgradeCostUpdated = upgradeCost;
+    upgradeCostUpdated[id] = upgradeCostUpdated[id] * 1.15
+    setUpgradeCost(upgradeCostUpdated);
+    let ownedUpdatesUpdated = ownedUpgrades;
+    ownedUpdatesUpdated[id] += 1;
+    setOwnedUpgrades(ownedUpdatesUpdated);
   };
   return (
     <div className="w-1/3 bg-[#90CCF4] border-l-8 border-black flex flex-col  items-center">
@@ -41,17 +54,23 @@ const RightSide = (props) => {
       <Upgrade
         image={goldenDogAnimation}
         text={"Golden Dog"}
-        cost={upgradeCost[0]}
+        cost={Math.floor(upgradeCost[0])}
+        number={ownedUpgrades[0]}
+        onClick={() => {
+          buyUpgrade(0);
+        }}
       />
       <Upgrade
         image={dobermanDogWalkAnimation}
         text={"Doberman"}
-        cost={upgradeCost[1]}
+        cost={Math.floor(upgradeCost[1])}
+        number={ownedUpgrades[1]}
       />
       <Upgrade
         image={brownWhiteDogAnimation}
         text={"Brown Dog"}
-        cost={upgradeCost[2]}
+        cost={Math.floor(upgradeCost[2])}
+        number={ownedUpgrades[2]}
       />
     </div>
   );

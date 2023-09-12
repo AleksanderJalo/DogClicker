@@ -5,9 +5,17 @@ import MiddleSide from "./components/MiddleSide";
 import RightSide from "./components/RightSide";
 import pegi from "./images/dog2.png";
 import rubi from "./images/dog3.png";
+import { useEffect } from "react";
 function App() {
   const [doggos, setDoggos] = useState(0);
   const [clickAdd, setClickAdd] = useState(1);
+  const [doggosPerSecond, setDoggosPerSecond] = useState(0);
+  useEffect(() => { 
+    const interval = setInterval(() => {
+      setDoggos(prev => prev + doggosPerSecond);
+    }, 1000);
+    return () => { clearInterval(interval) };
+  }, [doggosPerSecond]);
   const onDoggoClick = () => {
     setDoggos((prev) => prev + clickAdd);
   };
@@ -18,6 +26,10 @@ function App() {
   const deleteDoggos = (howMany) => {
     setDoggos((prev) => prev - howMany);
   };
+
+  const onUpgradeBuy = (newDoggosPerSecond) => {
+    setDoggosPerSecond(prev => prev +  newDoggosPerSecond);
+  }
   return (
     <div className="h-screen w-full flex flex-col font-lalezar text-center select-none">
       <div className="h-[15vh] w-full flex text-6xl text-white bg-black justify-center items-center gap-3 relative">
@@ -38,8 +50,8 @@ function App() {
       </div>
       <div className="h-[85vh] flex">
         <LeftSide doggosNumber={doggos} onDogClick={onDoggoClick} clickAdd={ clickAdd } />
-        <MiddleSide />
-        <RightSide doggosNumber={doggos} deleteDoggos={deleteDoggos} betterClick={betterClick} />
+        <MiddleSide dogggosPerSecond={ doggosPerSecond} />
+        <RightSide doggosNumber={doggos} deleteDoggos={deleteDoggos} betterClick={betterClick} onUpgradeBuy={ onUpgradeBuy } />
       </div>
     </div>
   );

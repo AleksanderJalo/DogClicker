@@ -2,7 +2,7 @@ import React from "react";
 import grass from "../images/trawa.png";
 import dirt from "../images/ziemia2.png";
 import dirt2 from "../images/ground3.png";
-const MiddleSide = () => {
+const MiddleSide = (props) => {
   return (
     <div className="w-1/3 bg-[#F78888]  flex flex-col  items-center">
       <div className="h-[10vh] w-full flex items-center justify-center">
@@ -12,7 +12,7 @@ const MiddleSide = () => {
       </div>
       <div className="h-[60vh]">
         <div className="h-[8vh] w-full bg-black bg-opacity-50 flex justify-center items-center">
-          <div className=" text-3xl text-white ">0 per Seconds</div>
+          <div className=" text-3xl text-white ">{props.doggosPerSecond} per Seconds</div>
         </div>
         <div className=" w-full flex overflow-hidden mt-6 h-[8vh]">
           <img
