@@ -7,12 +7,16 @@ import PowerUp from "./PowerUp";
 import Upgrade from "./Upgrade";
 const RightSide = (props) => {
   const [powerUpCost, setPowerUpCost] = useState([10, 100, 1000, 11000]);
+  const [upgradeCost, setUpgradeCost] = useState([10, 100, 1100]);
   const buyPowerUp = (id) => {
     if (props.doggosNumber >= powerUpCost[id]) {
       props.deleteDoggos(powerUpCost[id]);
       props.betterClick();
+      let powerUpsCostUpdated = powerUpCost;
+      powerUpsCostUpdated[id] = powerUpsCostUpdated[id] * 4;
+      setPowerUpCost(powerUpsCostUpdated);
     }
-  }
+  };
   return (
     <div className="w-1/3 bg-[#90CCF4] border-l-8 border-black flex flex-col  items-center">
       <div className="h-[10vh] w-full flex items-center justify-center">
@@ -22,7 +26,14 @@ const RightSide = (props) => {
       </div>
 
       <div className="w-full bg-black bg-opacity-50 border-t-4 border-b-4 border-black flex justify-between items-center px-4 h-[8vh] flex-wrap">
-        <PowerUp image={mouseBooth} id={0} cost={powerUpCost[0]} onClick={() => { buyPowerUp(0); }} />
+        <PowerUp
+          image={mouseBooth}
+          id={0}
+          cost={powerUpCost[0]}
+          onClick={() => {
+            buyPowerUp(0);
+          }}
+        />
         <PowerUp image={mouseBooth} id={1} cost={powerUpCost[1]} />
         <PowerUp image={mouseBooth} id={2} cost={powerUpCost[2]} />
         <PowerUp image={mouseBooth} id={3} cost={powerUpCost[3]} />
@@ -30,17 +41,17 @@ const RightSide = (props) => {
       <Upgrade
         image={goldenDogAnimation}
         text={"Golden Dog"}
-        initialCost={15}
+        cost={upgradeCost[0]}
       />
       <Upgrade
         image={dobermanDogWalkAnimation}
         text={"Doberman"}
-        initialCost={100}
+        cost={upgradeCost[1]}
       />
       <Upgrade
         image={brownWhiteDogAnimation}
         text={"Brown Dog"}
-        initialCost={1100}
+        cost={upgradeCost[2]}
       />
     </div>
   );

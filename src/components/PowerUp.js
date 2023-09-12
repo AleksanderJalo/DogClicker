@@ -27,7 +27,7 @@ const PowerUp = (props) => {
                 <img src={dog} alt="dog" className="h-[100%]"/>{props.cost}
               </div>
             </div>
-            <div className="border-t-4 border-[#555454] flex justify-center items-center pt-3 p-2 text-xl h-[50%] w-full">
+            <div className="border-t-2 border-white flex justify-center items-center pt-3 p-2 text-xl h-[50%] w-full">
               {info.description}
             </div>
           </div>
