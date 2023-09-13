@@ -13,8 +13,8 @@ const RightSide = (props) => {
     false,
     false,
     false,
-    false,
   ]);
+  const [upgradesOpacity, setUpgradesOpacity] = useState([false, false, false, false]);
   const [powerUpCost, setPowerUpCost] = useState([10, 100, 1000, 11000]);
   const [upgradeCost, setUpgradeCost] = useState([10, 100, 1100]);
   const [ownedUpgrades, setOwnedUpgrades] = useState([0, 0, 0]);
@@ -31,7 +31,20 @@ const RightSide = (props) => {
         setPowerUpOpacity(newOpacity);
       }
     }
-  });
+    for (let i = 0; i < i < upgradeCost.length; i++) {
+      let newOpacity = upgradesOpacity;
+      if (props.doggosNumber >= upgradeCost[i]) {
+        newOpacity[i] = true;
+        setUpgradesOpacity(newOpacity);
+      } else {
+        let newOpacity = upgradesOpacity;
+        newOpacity[i] = true;
+        setUpgradesOpacity(newOpacity)
+      }
+      
+      
+    }
+  }, [powerUpCost, props.doggosNumber, powerUpOpacity, upgradeCost, upgradesOpacity]);
 
   const buyPowerUp = (id) => {
     if (id === 0) {
@@ -112,6 +125,7 @@ const RightSide = (props) => {
         />
       </div>
       <Upgrade
+        show={upgradesOpacity[0]}
         image={goldenDogAnimation}
         text={"Golden Dog"}
         cost={Math.floor(upgradeCost[0])}
@@ -121,6 +135,7 @@ const RightSide = (props) => {
         }}
       />
       <Upgrade
+        show={upgradesOpacity[1]}
         image={dobermanDogWalkAnimation}
         text={"Doberman"}
         cost={Math.floor(upgradeCost[1])}
@@ -130,6 +145,7 @@ const RightSide = (props) => {
         }}
       />
       <Upgrade
+        show={upgradesOpacity[2]}
         image={brownWhiteDogAnimation}
         text={"Brown Dog"}
         cost={Math.floor(upgradeCost[2])}
