@@ -13,8 +13,9 @@ const RightSide = (props) => {
     false,
     false,
     false,
+    false
   ]);
-  const [upgradesOpacity, setUpgradesOpacity] = useState([false, false, false, false]);
+  const [upgradesOpacity, setUpgradesOpacity] = useState([false, false, false]);
   const [powerUpCost, setPowerUpCost] = useState([10, 100, 1000, 11000]);
   const [upgradeCost, setUpgradeCost] = useState([10, 100, 1100]);
   const [ownedUpgrades, setOwnedUpgrades] = useState([0, 0, 0]);
@@ -31,14 +32,15 @@ const RightSide = (props) => {
         setPowerUpOpacity(newOpacity);
       }
     }
-    for (let i = 0; i < i < upgradeCost.length; i++) {
+    for (let i = 0; i  < upgradeCost.length ; i++) {
       let newOpacity = upgradesOpacity;
       if (props.doggosNumber >= upgradeCost[i]) {
         newOpacity[i] = true;
         setUpgradesOpacity(newOpacity);
+        console.log(newOpacity);
       } else {
         let newOpacity = upgradesOpacity;
-        newOpacity[i] = true;
+        newOpacity[i] = false;
         setUpgradesOpacity(newOpacity)
       }
       
