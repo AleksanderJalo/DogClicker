@@ -15,10 +15,8 @@ const RightSide = (props) => {
     false,
     false,
   ]);
-  const [upgradeMultipler, setUpgradeMultpler] = useState([1, 1, 1, 1]);
   const [powerUpCost, setPowerUpCost] = useState([10, 100, 1000, 11000]);
   const [upgradeCost, setUpgradeCost] = useState([10, 100, 1100]);
-  const [upgradeCps, setUpgradeCps] = useState([0.1, 0.3, 0.5]);
   const [ownedUpgrades, setOwnedUpgrades] = useState([0, 0, 0]);
 
   useEffect(() => {
@@ -40,7 +38,6 @@ const RightSide = (props) => {
       if (props.doggosNumber >= powerUpCost[id]) {
         props.betterClick();
         props.deleteDoggos(powerUpCost[id]);
-
         let powerUpsCostUpdated = powerUpCost;
         powerUpsCostUpdated[id] = powerUpsCostUpdated[id] * 4;
         setPowerUpCost(powerUpsCostUpdated);
@@ -48,10 +45,10 @@ const RightSide = (props) => {
     } else {
       if (props.doggosNumber >= powerUpCost[id]) {
         props.deleteDoggos(powerUpCost[id]);
+        props.onPowerUpBuy(id - 1);
         let powerUpsCostUpdated = powerUpCost;
         powerUpsCostUpdated[id] = powerUpsCostUpdated[id] * 4;
         setPowerUpCost(powerUpsCostUpdated);
-        props.onUpgradeBuy(ownedUpgrades[id] * 0.1 * upgradeMultipler[id]);
       }
     }
   };
@@ -59,7 +56,7 @@ const RightSide = (props) => {
   const buyUpgrade = (id) => {
     if (props.doggosNumber >= Math.floor(upgradeCost[id])) {
       props.deleteDoggos(Math.floor(upgradeCost[id]));
-      props.onUpgradeBuy(upgradeCps[id] * upgradeMultipler[id]);
+      props.onUpgradeBuy(id);
       let upgradeCostUpdated = upgradeCost;
       upgradeCostUpdated[id] = upgradeCostUpdated[id] * 1.15;
       setUpgradeCost(upgradeCostUpdated);
@@ -100,12 +97,18 @@ const RightSide = (props) => {
           image={dobermanUpgradeImage}
           id={2}
           cost={powerUpCost[2]}
+          onClick={() => {
+            buyPowerUp(2);
+          }}
         />
         <PowerUp
           show={powerUpOpacity[3]}
           image={brownDoggoUpgradeImage}
           id={3}
           cost={powerUpCost[3]}
+          onClick={() => {
+            buyPowerUp(3);
+          }}
         />
       </div>
       <Upgrade
@@ -131,6 +134,9 @@ const RightSide = (props) => {
         text={"Brown Dog"}
         cost={Math.floor(upgradeCost[2])}
         number={ownedUpgrades[2]}
+        onClick={() => {
+          buyUpgrade(2);
+        }}
       />
     </div>
   );

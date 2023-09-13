@@ -10,30 +10,56 @@ function App() {
   const [doggos, setDoggos] = useState(0);
   const [clickAdd, setClickAdd] = useState(1);
   const [doggosPerSecond, setDoggosPerSecond] = useState(0);
-  useEffect(() => { 
+  const [powerUpMultiplyer, setPowerUpMultiplyer] = useState([1, 1, 1]);
+  const upgradesPowers = [0.1, 0.3, 0.5];
+  const [upgradesQuantities, setUpgradesQuantities] = useState([0, 0, 0]);
+  useEffect(() => {
     const interval = setInterval(() => {
-      setDoggos(prev => prev + doggosPerSecond);
+      setDoggos((prev) => prev + doggosPerSecond);
     }, 1000);
-    return () => { clearInterval(interval) };
-  }, [doggosPerSecond]);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [doggos, upgradesQuantities]);
   const onDoggoClick = () => {
     setDoggos((prev) => prev + clickAdd);
   };
   const betterClick = () => {
     setClickAdd((prev) => prev * 2);
-  }
+  };
 
   const deleteDoggos = (howMany) => {
     setDoggos((prev) => prev - howMany);
   };
+  const onPowerUpBuy = (id) => {
+    let newPowerUpMultiplyer = powerUpMultiplyer;
+    newPowerUpMultiplyer[id] = newPowerUpMultiplyer[id] * 2;
+    setPowerUpMultiplyer(newPowerUpMultiplyer);
+    refreshDoggosPerSecond();
+  };
 
-  const onUpgradeBuy = (newDoggosPerSecond) => {
-    setDoggosPerSecond(prev => prev + newDoggosPerSecond);
+  const refreshDoggosPerSecond = () => {
+    let i = 0;
+    let newDoggosPerSecond = 0;
+    for (const upgrade of upgradesPowers) {
+      newDoggosPerSecond +=
+        powerUpMultiplyer[i] * upgradesQuantities[i] * upgrade;
+      i++;
+    }
+    setDoggosPerSecond(newDoggosPerSecond);
+  };
 
-  }
+  const onUpgradeBuy = (id) => {
+    let newUpgradesQuantities = upgradesQuantities;
+    newUpgradesQuantities[id] += 1;
+    setUpgradesQuantities(newUpgradesQuantities);
+    refreshDoggosPerSecond();
+  };
+
   return (
-    <div className="h-screen w-full flex flex-col font-lalezar text-center select-none">
-      <div className="h-[15vh] w-full flex text-6xl text-white bg-black justify-center items-center gap-3 relative">
+    <div className="min-h-screen w-full flex flex-col font-lalezar text-center select-none max-h-screen">
+      <div className="h-[15svh] w-full flex text-6xl text-white bg-black justify-center items-center gap-3 relative">
         <img
           className="absolute left-12 bottom-0 h-4/5"
           src={pegi}
@@ -50,9 +76,19 @@ function App() {
         </div>
       </div>
       <div className="h-[85vh] flex">
-        <LeftSide doggosNumber={doggos} onDogClick={onDoggoClick} clickAdd={ clickAdd } />
-        <MiddleSide doggosPerSecond={ doggosPerSecond} />
-        <RightSide doggosNumber={doggos} deleteDoggos={deleteDoggos} betterClick={betterClick} onUpgradeBuy={ onUpgradeBuy } />
+        <LeftSide
+          doggosNumber={doggos}
+          onDogClick={onDoggoClick}
+          clickAdd={clickAdd}
+        />
+        <MiddleSide doggosPerSecond={doggosPerSecond} />
+        <RightSide
+          doggosNumber={doggos}
+          deleteDoggos={deleteDoggos}
+          betterClick={betterClick}
+          onUpgradeBuy={onUpgradeBuy}
+          onPowerUpBuy={onPowerUpBuy}
+        />
       </div>
     </div>
   );
