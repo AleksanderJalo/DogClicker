@@ -15,13 +15,13 @@ function App() {
   const [upgradesQuantities, setUpgradesQuantities] = useState([0, 0, 0]);
   useEffect(() => {
     const interval = setInterval(() => {
-      setDoggos((prev) => prev + doggosPerSecond);
-    }, 1000);
+      setDoggos((prev) => prev + doggosPerSecond / 10);
+    }, 100);
 
     return () => {
       clearInterval(interval);
     };
-  }, [doggos, upgradesQuantities]);
+  }, [doggos, upgradesQuantities, doggosPerSecond]);
   const onDoggoClick = () => {
     setDoggos((prev) => prev + clickAdd);
   };
@@ -81,7 +81,10 @@ function App() {
           onDogClick={onDoggoClick}
           clickAdd={clickAdd}
         />
-        <MiddleSide doggosPerSecond={doggosPerSecond} />
+        <MiddleSide
+          doggosPerSecond={doggosPerSecond}
+          upgradesQuantities={upgradesQuantities}
+        />
         <RightSide
           doggosNumber={doggos}
           deleteDoggos={deleteDoggos}

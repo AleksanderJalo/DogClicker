@@ -1,8 +1,15 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import grass from "../images/trawa.png";
 import dirt from "../images/ziemia2.png";
 import dirt2 from "../images/ground3.png";
+import GoldenDogAnimation from "../images/upgrade art/Dog_Idle_Animation.gif";
 const MiddleSide = (props) => {
+  const pixelArray = [];
+  useEffect(() => {
+    for (let i = 10; i < 10000; i += 10){
+      pixelArray.push(`${i}px`);
+    }
+  },[])
   return (
     <div className="w-1/3 bg-[#F78888]  flex flex-col  items-center">
       <div className="h-[10svh] w-full flex items-center justify-center">
@@ -12,9 +19,24 @@ const MiddleSide = (props) => {
       </div>
       <div className="h-[60svh]">
         <div className="h-[8svh] w-full bg-black bg-opacity-50 flex justify-center items-center">
-          <div className=" text-3xl text-white flex gap-2"><div>{Math.round(props.doggosPerSecond * 10) / 10}</div> per Seconds</div>
+          <div className=" text-3xl text-white flex gap-2">
+            <div>{Math.round(props.doggosPerSecond * 10) / 10}</div> per Seconds
+          </div>
         </div>
-        <div className=" w-full flex overflow-hidden mt-6 h-[8svh]">
+        <div className="relative w-full flex overflow-hidden mt-6 h-[8svh]">
+          {Array(props.upgradesQuantities[0])
+            .fill(0)
+            .map((x, idx) => (
+              <div
+                key={idx}
+                className={`absolute h-[2svh] ${
+                  idx % 2 === 0 ? "bottom-1/2" : "bottom-1/3"
+                  }`}
+                  style={{ left: `${20 + idx * 40}px` }}
+              >
+                <img src={GoldenDogAnimation} />
+              </div>
+            ))}
           <img
             src={grass}
             alt="grass"

@@ -27,7 +27,7 @@ const LeftSide = (props) => {
 
       <div className="w-full h-[8vh] bg-black bg-opacity-40 text-white py-3 flex flex-col justify-center items-center">
         <div className=" text-3xl">{Math.floor(props.doggosNumber)} DOGGOS</div>
-        <div className=" text-xl">CLICK - 1 DOG</div>
+        <div className=" text-xl">CLICK - {props.clickAdd} DOG</div>
       </div>
 
       <div
