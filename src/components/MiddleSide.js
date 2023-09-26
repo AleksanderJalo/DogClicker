@@ -1,15 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import grass from "../images/trawa.png";
 import dirt from "../images/ziemia2.png";
 import dirt2 from "../images/ground3.png";
 import GoldenDogAnimation from "../images/upgrade art/Dog_Idle_Animation.gif";
+import DobermanAnimation from "../images/upgrade art/Dog_2_Walk.gif";
 const MiddleSide = (props) => {
-  const pixelArray = [];
-  useEffect(() => {
-    for (let i = 10; i < 10000; i += 10){
-      pixelArray.push(`${i}px`);
-    }
-  },[])
   return (
     <div className="w-1/3 bg-[#F78888]  flex flex-col  items-center">
       <div className="h-[10svh] w-full flex items-center justify-center">
@@ -31,10 +26,10 @@ const MiddleSide = (props) => {
                 key={idx}
                 className={`absolute h-[2svh] ${
                   idx % 2 === 0 ? "bottom-1/2" : "bottom-1/3"
-                  }`}
-                  style={{ left: `${20 + idx * 40}px` }}
+                }`}
+                style={{ left: `${20 + idx * 40}px` }}
               >
-                <img src={GoldenDogAnimation} />
+                <img src={GoldenDogAnimation} alt="Golden Dog" />
               </div>
             ))}
           <img
@@ -58,8 +53,20 @@ const MiddleSide = (props) => {
             className="border-t-4 border-b-4 border-black"
           />
         </div>
-        <div className="w-full flex overflow-hidden  h-[8vh] mt-6">
-          {" "}
+        <div className="relative w-full flex overflow-hidden mt-6 h-[8svh]">
+          {Array(props.upgradesQuantities[1])
+            .fill(0)
+            .map((x, idx) => (
+              <div
+                key={idx}
+                className={`absolute h-[2svh] ${
+                  idx % 2 === 0 ? "bottom-1/2" : "bottom-1/3"
+                }`}
+                style={{ left: `${20 + idx * 40}px` }}
+              >
+                <img src={DobermanAnimation} alt="Golden Dog" />
+              </div>
+            ))}{" "}
           <img
             src={dirt}
             alt="grass"

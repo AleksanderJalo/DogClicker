@@ -22,7 +22,7 @@ const PowerUp = (props) => {
         <div className="absolute bottom-16 flex right-10  text-white bg-green-900 w-[15vw] px-3 pt-1 pb-2 border-white border-4 font-barlow">
           <div className="flex flex-col w-full">
             <div className="flex justify-between items-center gap-8 h-[50%] w-full">
-              <div className="text-md whitespace-nowrap font-rowdies">
+              <div className="text-md whitespace-nowrap font-rowdie min-">
                 {info.name}
               </div>
               <div className="flex items-center justify-center gap-2  pb-1 h-[50%]">
