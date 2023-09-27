@@ -6,6 +6,10 @@ import brownDoggoUpgradeImage from "../images/upgrade art/brownDoggoUpgrade.png"
 import goldenDogAnimation from "../images/upgrade art/Dog_Idle_Animation.gif";
 import brownWhiteDogAnimation from "../images/upgrade art/Dog_Idle_brown_white.gif";
 import dobermanDogWalkAnimation from "../images/upgrade art/Dog_2_Walk.gif";
+import catAnimation from "../images/upgrade art/Catanimation.gif";
+import BirdAnimation from "../images/upgrade art/Bird_animation.gif";
+import catUpgrade from "../images/upgrade art/cat_upgrade.png";
+import birdUpgrade from "../images/upgrade art/birdUpgrade.png";
 import PowerUp from "./PowerUp";
 import Upgrade from "./Upgrade";
 const RightSide = (props) => {
@@ -14,11 +18,23 @@ const RightSide = (props) => {
     false,
     false,
     false,
+    false,
+    false
   ]);
-  const [upgradesOpacity, setUpgradesOpacity] = useState([false, false, false]);
-  const [powerUpCost, setPowerUpCost] = useState([10, 100, 1000, 11000]);
-  const [upgradeCost, setUpgradeCost] = useState([10, 100, 1100]);
-  const [ownedUpgrades, setOwnedUpgrades] = useState([0, 0, 0]);
+  const [upgradesOpacity, setUpgradesOpacity] = useState([
+    false,
+    false,
+    false,
+    false,
+    false
+  ]);
+  const [powerUpCost, setPowerUpCost] = useState([
+    10, 100, 1000, 11000, 120000, 1300000
+  ]);
+  const [upgradeCost, setUpgradeCost] = useState([
+    10, 100, 1100, 12000, 130000,
+  ]);
+  const [ownedUpgrades, setOwnedUpgrades] = useState([0, 0, 0, 0, 0]);
 
   useEffect(() => {
     for (let i = 0; i < powerUpCost.length; i++) {
@@ -128,6 +144,24 @@ const RightSide = (props) => {
             buyPowerUp(3);
           }}
         />
+        <PowerUp
+          show={powerUpOpacity[4]}
+          image={catUpgrade}
+          id={4}
+          cost={powerUpCost[4]}
+          onClick={() => {
+            buyPowerUp(4);
+          }}
+        />
+        <PowerUp
+          show={powerUpOpacity[5]}
+          image={birdUpgrade}
+          id={5}
+          cost={powerUpCost[5]}
+          onClick={() => {
+            buyPowerUp();
+          }}
+        />
       </div>
       <Upgrade
         show={upgradesOpacity[0]}
@@ -157,6 +191,26 @@ const RightSide = (props) => {
         number={ownedUpgrades[2]}
         onClick={() => {
           buyUpgrade(2);
+        }}
+      />
+      <Upgrade
+        show={upgradesOpacity[3]}
+        image={catAnimation}
+        text={"Cat"}
+        cost={Math.floor(upgradeCost[3])}
+        number={ownedUpgrades[3]}
+        onClick={() => {
+          buyUpgrade(3);
+        }}
+      />
+      <Upgrade
+        show={upgradesOpacity[4]}
+        image={BirdAnimation}
+        text={"Bird"}
+        cost={Math.floor(upgradeCost[4])}
+        number={ownedUpgrades[4]}
+        onClick={() => {
+          buyUpgrade(4);
         }}
       />
     </div>

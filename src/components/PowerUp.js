@@ -6,7 +6,7 @@ const PowerUp = (props) => {
   const [info, setInfo] = useState();
   useEffect(() => {
     setInfo(getPowerUpInfo(props.id));
-  }, []);
+  });
   return (
     <div
       onClick={props.onClick}
@@ -36,7 +36,11 @@ const PowerUp = (props) => {
           </div>
         </div>
       )}
-      <img className={`h-[80%] ${props.show ? "opacity-100" : "opacity-50"}`} src={props.image} />
+      <img
+        className={`h-[80%] ${props.show ? "opacity-100" : "opacity-50"}`}
+        src={props.image}
+        alt="Power Up"
+      />
     </div>
   );
 };

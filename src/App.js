@@ -10,14 +10,15 @@ function App() {
   const [doggos, setDoggos] = useState(0);
   const [clickAdd, setClickAdd] = useState(1);
   const [doggosPerSecond, setDoggosPerSecond] = useState(0);
-  const [powerUpMultiplyer, setPowerUpMultiplyer] = useState([1, 1, 1]);
-  const upgradesPowers = [0.1, 0.3, 0.5];
-  const [upgradesQuantities, setUpgradesQuantities] = useState([0, 0, 0]);
+  const [powerUpMultiplyer, setPowerUpMultiplyer] = useState([
+    1, 1, 1, 1, 1, 1,
+  ]);
+  const upgradesPowers = [0.1, 1, 8, 47, 260];
+  const [upgradesQuantities, setUpgradesQuantities] = useState([0, 0, 0, 0, 0]);
   useEffect(() => {
     const interval = setInterval(() => {
       setDoggos((prev) => prev + doggosPerSecond / 10);
     }, 100);
-
     return () => {
       clearInterval(interval);
     };
