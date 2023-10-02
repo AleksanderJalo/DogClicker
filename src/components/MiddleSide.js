@@ -15,188 +15,190 @@ const MiddleSide = (props) => {
           Your Workers
         </div>
       </div>
-      <div className="h-[60svh]">
-        <div className="h-[8svh] w-full bg-black bg-opacity-50 flex justify-center items-center">
-          <div className=" text-[1rem] lg:text-[1.2rem] xl:text-[1.5rem] text-white flex gap-2">
-            <div>{Math.round(props.doggosPerSecond * 10) / 10}</div> per Seconds
+
+      <div className="h-[8svh] w-full bg-black bg-opacity-50 flex justify-center items-center">
+        <div className=" text-[1rem] lg:text-[1.2rem] xl:text-[1.5rem] text-white flex gap-2">
+          <div>{Math.round(props.doggosPerSecond * 10) / 10}</div> per Seconds
+        </div>
+        </div>
+        <div className="h-[67svh] flex flex-col justify-between items-center w-full">
+          <div className="relative w-full flex overflow-hidden mt-[0.8rem] lg:mt-[1.5rem] h-[9svh]">
+            {Array(props.upgradesQuantities[0])
+              .fill(0)
+              .map((x, idx) => (
+                <div
+                  key={idx}
+                  className={`absolute h-[2svh] ${
+                    idx % 2 === 0 ? "bottom-1/2" : "bottom-1/3"
+                  }`}
+                  style={{ left: `${20 + idx * 40}px` }}
+                >
+                  <img src={GoldenDogAnimation} alt="Golden Dog" />
+                </div>
+              ))}
+            <img
+              src={grass}
+              alt="grass"
+              className="border-t-4 border-b-4 border-black"
+            />
+            <img
+              src={grass}
+              alt="grass"
+              className="border-t-4 border-b-4 border-black"
+            />
+            <img
+              src={grass}
+              alt="grass"
+              className="border-t-4 border-b-4 border-black"
+            />
+            <img
+              src={grass}
+              alt="grass"
+              className="border-t-4 border-b-4 border-black"
+            />
+          </div>
+          <div className="relative w-full flex overflow-hidden mt-[0.8rem] lg:mt-[1.5rem] h-[9svh]">
+            {Array(props.upgradesQuantities[1])
+              .fill(0)
+              .map((x, idx) => (
+                <div
+                  key={idx}
+                  className={`absolute h-[2svh] ${
+                    idx % 2 === 0 ? "bottom-1/2" : "bottom-1/3"
+                  }`}
+                  style={{ left: `${20 + idx * 40}px` }}
+                >
+                  <img src={DobermanAnimation} alt="Doberman" />
+                </div>
+              ))}{" "}
+            <img
+              src={dirt}
+              alt="grass"
+              className="border-t-4 border-b-4 border-black"
+            />
+            <img
+              src={dirt}
+              alt="grass"
+              className="border-t-4 border-b-4 border-black"
+            />
+            <img
+              src={dirt}
+              alt="grass"
+              className="border-t-4 border-b-4 border-black"
+            />
+            <img
+              src={dirt}
+              alt="grass"
+              className="border-t-4 border-b-4 border-black"
+            />
+          </div>
+          <div className=" w-full flex overflow-hidden  h-[9svh] mt-[0.8rem] lg:mt-[1.5rem] relative">
+            {Array(props.upgradesQuantities[2])
+              .fill(0)
+              .map((x, idx) => (
+                <div
+                  key={idx}
+                  className={`absolute h-[2svh] ${
+                    idx % 2 === 0 ? "bottom-1/2" : "bottom-1/3"
+                  }`}
+                  style={{ left: `${20 + idx * 40}px` }}
+                >
+                  <img src={BrownDogAnimation} alt="Brown  Dog" />
+                </div>
+              ))}
+            <img
+              src={dirt2}
+              alt="grass"
+              className="border-t-4 border-b-4 border-black"
+            />
+            <img
+              src={dirt2}
+              alt="grass"
+              className="border-t-4 border-b-4 border-black"
+            />
+            <img
+              src={dirt2}
+              alt="grass"
+              className="border-t-4 border-b-4 border-black"
+            />
+            <img
+              src={dirt2}
+              alt="grass"
+              className="border-t-4 border-b-4 border-black"
+            />
+          </div>
+          <div className="w-full flex overflow-hidden  h-[9svh] mt-[0.8rem] lg:mt-[1.5rem] relative">
+            {Array(props.upgradesQuantities[3])
+              .fill(0)
+              .map((x, idx) => (
+                <div
+                  key={idx}
+                  className={`absolute h-[2svh] ${
+                    idx % 2 === 0 ? "bottom-1/2" : "bottom-1/3"
+                  }`}
+                  style={{ left: `${20 + idx * 40}px` }}
+                >
+                  <img src={CatAnimation} alt="Cat" />
+                </div>
+              ))}{" "}
+            <img
+              src={grass}
+              alt="grass"
+              className="border-t-4 border-b-4 border-black"
+            />
+            <img
+              src={grass}
+              alt="grass"
+              className="border-t-4 border-b-4 border-black"
+            />
+            <img
+              src={grass}
+              alt="grass"
+              className="border-t-4 border-b-4 border-black"
+            />
+            <img
+              src={grass}
+              alt="grass"
+              className="border-t-4 border-b-4 border-black"
+            />
+          </div>
+          <div className=" w-full flex overflow-hidden  h-[9svh] mt-[0.8rem] lg:mt-[1.5rem] mb-[0.8rem] lg:mb-[1.5rem] relative">
+            {Array(props.upgradesQuantities[4])
+              .fill(0)
+              .map((x, idx) => (
+                <div
+                  key={idx}
+                  className={`absolute h-[2svh] ${
+                    idx % 2 === 0 ? "bottom-1/2" : "bottom-1/3"
+                  }`}
+                  style={{ left: `${20 + idx * 40}px` }}
+                >
+                  <img src={BirdAnimation} alt="Bird" />
+                </div>
+              ))}
+            <img
+              src={dirt}
+              alt="grass"
+              className="border-t-4 border-b-4 border-black"
+            />
+            <img
+              src={dirt}
+              alt="grass"
+              className="border-t-4 border-b-4 border-black"
+            />
+            <img
+              src={dirt}
+              alt="grass"
+              className="border-t-4 border-b-4 border-black"
+            />
+            <img
+              src={dirt}
+              alt="grass"
+              className="border-t-4 border-b-4 border-black"
+            />
           </div>
         </div>
-        <div className="relative w-full flex overflow-hidden mt-6 h-[10svh]">
-          {Array(props.upgradesQuantities[0])
-            .fill(0)
-            .map((x, idx) => (
-              <div
-                key={idx}
-                className={`absolute h-[2svh] ${
-                  idx % 2 === 0 ? "bottom-1/2" : "bottom-1/3"
-                }`}
-                style={{ left: `${20 + idx * 40}px` }}
-              >
-                <img src={GoldenDogAnimation} alt="Golden Dog" />
-              </div>
-            ))}
-          <img
-            src={grass}
-            alt="grass"
-            className="border-t-4 border-b-4 border-black"
-          />
-          <img
-            src={grass}
-            alt="grass"
-            className="border-t-4 border-b-4 border-black"
-          />
-          <img
-            src={grass}
-            alt="grass"
-            className="border-t-4 border-b-4 border-black"
-          />
-          <img
-            src={grass}
-            alt="grass"
-            className="border-t-4 border-b-4 border-black"
-          />
-        </div>
-        <div className="relative w-full flex overflow-hidden mt-6 h-[10svh]">
-          {Array(props.upgradesQuantities[1])
-            .fill(0)
-            .map((x, idx) => (
-              <div
-                key={idx}
-                className={`absolute h-[2svh] ${
-                  idx % 2 === 0 ? "bottom-1/2" : "bottom-1/3"
-                }`}
-                style={{ left: `${20 + idx * 40}px` }}
-              >
-                <img src={DobermanAnimation} alt="Doberman" />
-              </div>
-            ))}{" "}
-          <img
-            src={dirt}
-            alt="grass"
-            className="border-t-4 border-b-4 border-black"
-          />
-          <img
-            src={dirt}
-            alt="grass"
-            className="border-t-4 border-b-4 border-black"
-          />
-          <img
-            src={dirt}
-            alt="grass"
-            className="border-t-4 border-b-4 border-black"
-          />
-          <img
-            src={dirt}
-            alt="grass"
-            className="border-t-4 border-b-4 border-black"
-          />
-        </div>
-        <div className=" w-full flex overflow-hidden  h-[10svh] mt-6 relative">
-          {Array(props.upgradesQuantities[2])
-            .fill(0)
-            .map((x, idx) => (
-              <div
-                key={idx}
-                className={`absolute h-[2svh] ${
-                  idx % 2 === 0 ? "bottom-1/2" : "bottom-1/3"
-                }`}
-                style={{ left: `${20 + idx * 40}px` }}
-              >
-                <img src={BrownDogAnimation} alt="Brown  Dog" />
-              </div>
-            ))}
-          <img
-            src={dirt2}
-            alt="grass"
-            className="border-t-4 border-b-4 border-black"
-          />
-          <img
-            src={dirt2}
-            alt="grass"
-            className="border-t-4 border-b-4 border-black"
-          />
-          <img
-            src={dirt2}
-            alt="grass"
-            className="border-t-4 border-b-4 border-black"
-          />
-          <img
-            src={dirt2}
-            alt="grass"
-            className="border-t-4 border-b-4 border-black"
-          />
-        </div>
-        <div className="w-full flex overflow-hidden  h-[10svh] mt-6 relative">
-          {Array(props.upgradesQuantities[3])
-            .fill(0)
-            .map((x, idx) => (
-              <div
-                key={idx}
-                className={`absolute h-[2svh] ${
-                  idx % 2 === 0 ? "bottom-1/2" : "bottom-1/3"
-                }`}
-                style={{ left: `${20 + idx * 40}px` }}
-              >
-                <img src={CatAnimation} alt="Cat" />
-              </div>
-            ))}{" "}
-          <img
-            src={grass}
-            alt="grass"
-            className="border-t-4 border-b-4 border-black"
-          />
-          <img
-            src={grass}
-            alt="grass"
-            className="border-t-4 border-b-4 border-black"
-          />
-          <img
-            src={grass}
-            alt="grass"
-            className="border-t-4 border-b-4 border-black"
-          />
-          <img
-            src={grass}
-            alt="grass"
-            className="border-t-4 border-b-4 border-black"
-          />
-        </div>
-        <div className=" w-full flex overflow-hidden  h-[10svh] mt-6  relative">
-          {Array(props.upgradesQuantities[4])
-            .fill(0)
-            .map((x, idx) => (
-              <div
-                key={idx}
-                className={`absolute h-[2svh] ${
-                  idx % 2 === 0 ? "bottom-1/2" : "bottom-1/3"
-                }`}
-                style={{ left: `${20 + idx * 40}px` }}
-              >
-                <img src={BirdAnimation} alt="Bird" />
-              </div>
-            ))}
-          <img
-            src={dirt}
-            alt="grass"
-            className="border-t-4 border-b-4 border-black"
-          />
-          <img
-            src={dirt}
-            alt="grass"
-            className="border-t-4 border-b-4 border-black"
-          />
-          <img
-            src={dirt}
-            alt="grass"
-            className="border-t-4 border-b-4 border-black"
-          />
-          <img
-            src={dirt}
-            alt="grass"
-            className="border-t-4 border-b-4 border-black"
-          />
-        </div>
-      </div>
+      
     </div>
   );
 };

@@ -19,17 +19,17 @@ const RightSide = (props) => {
     false,
     false,
     false,
-    false
+    false,
   ]);
   const [upgradesOpacity, setUpgradesOpacity] = useState([
     false,
     false,
     false,
     false,
-    false
+    false,
   ]);
   const [powerUpCost, setPowerUpCost] = useState([
-    10, 100, 1000, 11000, 120000, 1300000
+    10, 100, 1000, 11000, 120000, 1300000,
   ]);
   const [upgradeCost, setUpgradeCost] = useState([
     10, 100, 1100, 12000, 130000,
@@ -163,56 +163,58 @@ const RightSide = (props) => {
           }}
         />
       </div>
-      <Upgrade
-        show={upgradesOpacity[0]}
-        image={goldenDogAnimation}
-        text={"Golden Dog"}
-        cost={Math.floor(upgradeCost[0])}
-        number={ownedUpgrades[0]}
-        onClick={() => {
-          buyUpgrade(0);
-        }}
-      />
-      <Upgrade
-        show={upgradesOpacity[1]}
-        image={dobermanDogWalkAnimation}
-        text={"Doberman"}
-        cost={Math.floor(upgradeCost[1])}
-        number={ownedUpgrades[1]}
-        onClick={() => {
-          buyUpgrade(1);
-        }}
-      />
-      <Upgrade
-        show={upgradesOpacity[2]}
-        image={brownWhiteDogAnimation}
-        text={"Brown Dog"}
-        cost={Math.floor(upgradeCost[2])}
-        number={ownedUpgrades[2]}
-        onClick={() => {
-          buyUpgrade(2);
-        }}
-      />
-      <Upgrade
-        show={upgradesOpacity[3]}
-        image={catAnimation}
-        text={"Cat"}
-        cost={Math.floor(upgradeCost[3])}
-        number={ownedUpgrades[3]}
-        onClick={() => {
-          buyUpgrade(3);
-        }}
-      />
-      <Upgrade
-        show={upgradesOpacity[4]}
-        image={BirdAnimation}
-        text={"Bird"}
-        cost={Math.floor(upgradeCost[4])}
-        number={ownedUpgrades[4]}
-        onClick={() => {
-          buyUpgrade(4);
-        }}
-      />
+      <div className="flex flex-col justify-between items-center w-full h-[67svh]">
+        <Upgrade
+          show={upgradesOpacity[0]}
+          image={goldenDogAnimation}
+          text={"Golden Dog"}
+          cost={Math.floor(upgradeCost[0])}
+          number={ownedUpgrades[0]}
+          onClick={() => {
+            buyUpgrade(0);
+          }}
+        />
+        <Upgrade
+          show={upgradesOpacity[1]}
+          image={dobermanDogWalkAnimation}
+          text={"Doberman"}
+          cost={Math.floor(upgradeCost[1])}
+          number={ownedUpgrades[1]}
+          onClick={() => {
+            buyUpgrade(1);
+          }}
+        />
+        <Upgrade
+          show={upgradesOpacity[2]}
+          image={brownWhiteDogAnimation}
+          text={"Brown Dog"}
+          cost={Math.floor(upgradeCost[2])}
+          number={ownedUpgrades[2]}
+          onClick={() => {
+            buyUpgrade(2);
+          }}
+        />
+        <Upgrade
+          show={upgradesOpacity[3]}
+          image={catAnimation}
+          text={"Cat"}
+          cost={Math.floor(upgradeCost[3])}
+          number={ownedUpgrades[3]}
+          onClick={() => {
+            buyUpgrade(3);
+          }}
+        />
+        <Upgrade
+          show={upgradesOpacity[4]}
+          image={BirdAnimation}
+          text={"Bird"}
+          cost={Math.floor(upgradeCost[4])}
+          number={ownedUpgrades[4]}
+          onClick={() => {
+            buyUpgrade(4);
+          }}
+        />
+      </div>
     </div>
   );
 };

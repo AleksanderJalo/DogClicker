@@ -2,7 +2,7 @@ import React from "react";
 const Upgrade = (props) => {
   return (
     <div
-      className={`w-[90%] h-[10svh]  bg-[#D9D9D9] mt-6 border-8 border-[#988D94] flex items-center px-3 justify-between ${props.show ? "opacity-100" : "opacity-75"}`}
+      className={`w-[90%] h-[9svh]  bg-[#D9D9D9] mt-[0.8rem] lg:mt-[1.5rem] border-8 border-[#988D94] flex items-center px-3 justify-between ${props.text === "Bird" ? "mb-[0.8rem] lg:mb-[1.5rem]" : ""} ${props.show ? "opacity-100" : "opacity-75"}`}
       onClick={props.onClick}
     >
       <img
