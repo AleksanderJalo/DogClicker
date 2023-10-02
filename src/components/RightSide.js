@@ -102,12 +102,12 @@ const RightSide = (props) => {
   return (
     <div className="w-1/3 bg-[#90CCF4] border-l-8 border-black flex flex-col  items-center">
       <div className="h-[10vh] w-full flex items-center justify-center">
-        <div className="w-1/2 h-3/5 bg-black bg-opacity-25 text-white rounded-xl p-3 text-xl xl:text-3xl flex items-center justify-center">
+        <div className="w-1/2 h-3/5 bg-black bg-opacity-25 text-white rounded-xl p-3 text-[1rem]  xl:text-[1.5rem] flex items-center justify-center">
           Shop
         </div>
       </div>
 
-      <div className="w-full bg-black bg-opacity-50 border-t-4 border-b-4 border-black flex justify-between items-center px-4 h-[8vh] flex-wrap">
+      <div className="w-full bg-black bg-opacity-50 border-t-4 border-b-4 border-black flex flex-nowrap justify-between items-center px-4 h-[8vh]">
         <PowerUp
           show={powerUpOpacity[0]}
           image={mouseBoothImage}

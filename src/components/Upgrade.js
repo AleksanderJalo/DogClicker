@@ -11,10 +11,10 @@ const Upgrade = (props) => {
         className="h-4/5 bg-[#988D94] border-2 border-black p-1"
       />
       <div className="flex flex-col justify-center">
-        <div className="text-2xl">{props.text}</div>
-        <div className="text-lg font-barlow">{props.cost} doggos</div>
+        <div className="text-[0.8rem] lg:text-[1rem] xl:text-[1.5rem]">{props.text}</div>
+        <div className="text-[0.5rem] lg:text-[0.8rem] xl:text-[1rem] font-barlow">{props.cost} doggos</div>
       </div>
-      <div className="text-2xl text-gray-700 text-opacity-80">
+      <div className="text-[0.8rem] lg:text-[1rem] xl:text-[1.5rem] text-gray-700 text-opacity-80">
         {props.number}
       </div>
     </div>

@@ -60,7 +60,7 @@ function App() {
 
   return (
     <div className="min-h-screen w-full flex flex-col font-lalezar text-center select-none max-h-screen">
-      <div className="h-[15svh] w-full flex text-6xl text-white bg-black justify-center items-center gap-3 relative">
+      <div className="h-[15svh] w-full flex text-[2rem] lg:text-[3.5rem] text-white bg-black justify-center items-center gap-3 relative">
         <img
           className="absolute left-12 bottom-0 h-4/5"
           src={pegi}

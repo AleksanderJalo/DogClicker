@@ -6,7 +6,7 @@ const PowerUp = (props) => {
   const [info, setInfo] = useState();
   useEffect(() => {
     setInfo(getPowerUpInfo(props.id));
-  });
+  }, [props.id, setInfo]);
   return (
     <div
       onClick={props.onClick}
@@ -25,7 +25,7 @@ const PowerUp = (props) => {
               <div className="text-md whitespace-nowrap font-rowdie min-">
                 {info.name}
               </div>
-              <div className="flex items-center justify-center gap-2  pb-1 h-[50%]">
+              <div className="flex items-center justify-center gap-2  pb-1 h-[50%] ">
                 <img src={dog} alt="dog" className="h-[100%]" />
                 {props.cost}
               </div>
