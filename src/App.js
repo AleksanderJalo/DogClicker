@@ -4,6 +4,8 @@ import LeftSide from "./components/LeftSide";
 import MiddleSide from "./components/MiddleSide";
 import RightSide from "./components/RightSide";
 import LeftSideMobile from "./components/LeftSideMobile";
+import MiddleSideMobile from "./components/MiddleSideMobile";
+import RightSideMobile from "./components/RightSideMobile";
 import pegi from "./images/dog2.png";
 import rubi from "./images/dog3.png";
 import { useEffect } from "react";
@@ -11,6 +13,7 @@ import dogMenu from "./images/dogMenu.svg";
 import farmMenu from "./images/farm.svg";
 import coinMenu from "./images/coin.svg";
 function App() {
+  const [mobileMenu, setMobileMenu] = useState("Dog");
   const [doggos, setDoggos] = useState(0);
   const [clickAdd, setClickAdd] = useState(1);
   const [doggosPerSecond, setDoggosPerSecond] = useState(0);
@@ -19,6 +22,7 @@ function App() {
   ]);
   const upgradesPowers = [0.1, 1, 8, 47, 260];
   const [upgradesQuantities, setUpgradesQuantities] = useState([0, 0, 0, 0, 0]);
+
   useEffect(() => {
     const interval = setInterval(() => {
       setDoggos((prev) => prev + doggosPerSecond / 10);
@@ -27,6 +31,10 @@ function App() {
       clearInterval(interval);
     };
   }, [doggos, upgradesQuantities, doggosPerSecond]);
+  const mobileMenuHandler = (page) => {
+    setMobileMenu(page);
+  };
+
   const onDoggoClick = () => {
     setDoggos((prev) => prev + clickAdd);
   };
@@ -102,24 +110,56 @@ function App() {
       </div>
       <div className="landscape:hidden">
         <div className="h-[10svh] bg-black text-white text-[2rem] flex justify-center items-center gap-2">
-         <div> DOGGO</div> <div><span className="text-slate-400"> C</span>LICKER</div>
-        </div>
-        <LeftSideMobile
-          clickAdd={clickAdd}
-          onDogClick={onDoggoClick}
-          doggosNumber={doggos}
-        />
-      </div>
-      <div className="landscape:hidden h-[10svh] bg-black w-full text-white flex ">
-        <div className="border-r-2 border-white flex justify-center items-center w-1/3">
-        <img src={dogMenu} alt="DogMenu" className="h-1/2" />
-        </div>
-        <div className="border-r-2 border-white flex items-center justify-center w-1/3">
-        <img src={farmMenu} alt="FarmMenu" className="h-1/2" />
-        </div>
-        <div className="w-1/3 flex items-center justify-center">
-          <img src={coinMenu} alt="CoinMenu" className="h-1/2" />
+          <div> DOGGO</div>{" "}
+          <div>
+            <span className="text-slate-400"> C</span>LICKER
           </div>
+        </div>
+        <div className={`${mobileMenu === "Dog" ? "visible" : "hidden"}`}>
+          <LeftSideMobile
+            clickAdd={clickAdd}
+            onDogClick={onDoggoClick}
+            doggosNumber={doggos}
+          />
+        </div>
+        <div className={`${mobileMenu === "Farm" ? "visible" : "hidden"}`}>
+          <MiddleSideMobile />
+        </div>
+        <div className={`${mobileMenu === "Shop" ? "visible" : "hidden"}`}>
+          <RightSideMobile />
+        </div>
+      </div>
+      <div className="landscape:hidden h-[10svh]  w-full text-white flex ">
+        <div
+          className={`border-r-2 border-white flex justify-center items-center w-1/3 bg-black ${
+            mobileMenu === "Dog" ? "bg-opacity-80" : ""
+          }`}
+          onClick={() => {
+            mobileMenuHandler("Dog");
+          }}
+        >
+          <img src={dogMenu} alt="DogMenu" className="h-1/2" />
+        </div>
+        <div
+          className={`border-r-2 border-white flex items-center justify-center w-1/3 bg-black ${
+            mobileMenu === "Farm" ? "bg-opacity-80" : ""
+          }`}
+          onClick={() => {
+            mobileMenuHandler("Farm");
+          }}
+        >
+          <img src={farmMenu} alt="FarmMenu" className="h-1/2" />
+        </div>
+        <div
+          className={`w-1/3 flex items-center justify-center bg-black ${
+            mobileMenu === "Shop" ? "bg-opacity-80" : ""
+          }`}
+          onClick={() => {
+            mobileMenuHandler("Shop");
+          }}
+        >
+          <img src={coinMenu} alt="CoinMenu" className="h-1/2" />
+        </div>
       </div>
     </div>
   );
