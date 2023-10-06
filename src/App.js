@@ -123,7 +123,10 @@ function App() {
           />
         </div>
         <div className={`${mobileMenu === "Farm" ? "visible" : "hidden"}`}>
-          <MiddleSideMobile />
+          <MiddleSideMobile
+            doggosPerSecond={doggosPerSecond}
+            upgradesQuantities={upgradesQuantities}
+          />
         </div>
         <div className={`${mobileMenu === "Shop" ? "visible" : "hidden"}`}>
           <RightSideMobile />
