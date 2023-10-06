@@ -7,6 +7,9 @@ import LeftSideMobile from "./components/LeftSideMobile";
 import pegi from "./images/dog2.png";
 import rubi from "./images/dog3.png";
 import { useEffect } from "react";
+import dogMenu from "./images/dogMenu.svg";
+import farmMenu from "./images/farm.svg";
+import coinMenu from "./images/coin.svg";
 function App() {
   const [doggos, setDoggos] = useState(0);
   const [clickAdd, setClickAdd] = useState(1);
@@ -98,13 +101,25 @@ function App() {
         </div>
       </div>
       <div className="landscape:hidden">
-        <div className="h-[10svh] bg-black text-white text-[1.5rem] flex justify-center items-center">
-          DOGGO <span className="text-slate-400"> C</span>LICKER
+        <div className="h-[10svh] bg-black text-white text-[2rem] flex justify-center items-center gap-2">
+         <div> DOGGO</div> <div><span className="text-slate-400"> C</span>LICKER</div>
         </div>
-        <LeftSideMobile/>
+        <LeftSideMobile
+          clickAdd={clickAdd}
+          onDogClick={onDoggoClick}
+          doggosNumber={doggos}
+        />
       </div>
-      <div className="landscape:hidden h-[10svh] bg-black w-full text-white ">
-        Menu
+      <div className="landscape:hidden h-[10svh] bg-black w-full text-white flex ">
+        <div className="border-r-2 border-white flex justify-center items-center w-1/3">
+        <img src={dogMenu} alt="DogMenu" className="h-1/2" />
+        </div>
+        <div className="border-r-2 border-white flex items-center justify-center w-1/3">
+        <img src={farmMenu} alt="FarmMenu" className="h-1/2" />
+        </div>
+        <div className="w-1/3 flex items-center justify-center">
+          <img src={coinMenu} alt="CoinMenu" className="h-1/2" />
+          </div>
       </div>
     </div>
   );
