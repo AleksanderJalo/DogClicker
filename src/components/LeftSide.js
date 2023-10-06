@@ -14,7 +14,6 @@ const LeftSide = (props) => {
     const x = event.clientX - containerBounds.left;
     const y = event.clientY - containerBounds.top;
     const textIndex = index;
-    console.log(clickTexts)
     setIndex((prev) => prev + 1);
     const newText = { x, y, textIndex };
     setClickTexts((prevTexts) => [...prevTexts.slice(-30), newText]);
