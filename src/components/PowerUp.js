@@ -1,46 +1,16 @@
-import React, { useEffect, useState } from "react";
-import dog from "../images/doggo.svg";
-import getPowerUpInfo from "./PowerUpInfo";
+import React from "react";
 const PowerUp = (props) => {
-  const [showInfo, setShowInfo] = useState(false);
-  const [info, setInfo] = useState();
-  useEffect(() => {
-    setInfo(getPowerUpInfo(props.id));
-  }, [props.id, setInfo]);
   return (
     <div
       onClick={props.onClick}
-      className="relative h-[100%] flex justify-center items-center "
-      onMouseEnter={() => {
-        setShowInfo(true);
-      }}
-      onMouseLeave={() => {
-        setShowInfo(false);
-      }}
+      className="h-[100%] flex flex-col justify-center items-center gap-3"
     >
-      {showInfo && (
-        <div className="absolute bottom-16 flex right-10  text-white bg-green-900 w-[15vw] px-3 pt-1 pb-2 border-white border-4 font-barlow">
-          <div className="flex flex-col w-full">
-            <div className="flex justify-between items-center gap-8 h-[50%] w-full">
-              <div className="text-md whitespace-nowrap font-rowdie min-">
-                {info.name}
-              </div>
-              <div className="flex items-center justify-center gap-2  pb-1 h-[50%] ">
-                <img src={dog} alt="dog" className="h-[100%]" />
-                {props.cost}
-              </div>
-            </div>
-            <div className="border-t-2 border-white flex justify-center items-center pt-3 p-2 text-xl h-[50%] w-full">
-              {info.description}
-            </div>
-          </div>
-        </div>
-      )}
       <img
-        className={`h-[80%] ${props.show ? "opacity-100" : "opacity-50"}`}
+        className={`h-[100%] ${props.show ? "opacity-100" : "opacity-50"}`}
         src={props.image}
         alt="Power Up"
       />
+      <div className="text-white font-barlow text-[0.5rem] xl:text-[0.8rem]">{props.cost}</div>
     </div>
   );
 };

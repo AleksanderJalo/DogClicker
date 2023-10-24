@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import mouseBoothImage from "../images/upgrade art/mouse_booth.png";
+import mouseBuffImage from "../images/upgrade art/mouse_booth.png";
 import doggoUpgradeImage from "../images/upgrade art/goledenDoggoUpgrade.png";
 import dobermanUpgradeImage from "../images/upgrade art/dobermanUpgrade.png";
 import brownDoggoUpgradeImage from "../images/upgrade art/brownDoggoUpgrade.png";
@@ -101,67 +101,66 @@ const RightSide = (props) => {
   };
   return (
     <div className="w-1/3 bg-[#90CCF4] border-l-8 border-black flex flex-col  items-center">
-      <div className="h-[10vh] w-full flex items-center justify-center">
-        <div className="w-1/2 h-3/5 bg-black bg-opacity-25 text-white rounded-xl p-3 text-[1rem]  xl:text-[1.5rem] flex items-center justify-center">
-          Shop
+      <div className="w-full bg-black bg-opacity-50  border-b-4 border-black h-[18vh] flex flex-col items-center">
+        <div className="text-white py-3 border-4 border-yellow-700 px-6 rounded-lg bg-opacity-70 bg-black mt-[0.4rem] text-[0.6rem] lg:text-[1rem]">
+          PowerUp - Your Production x2
         </div>
-      </div>
-
-      <div className="w-full bg-black bg-opacity-50 border-t-4 border-b-4 border-black flex flex-nowrap justify-between items-center px-4 h-[8vh]">
-        <PowerUp
-          show={powerUpOpacity[0]}
-          image={mouseBoothImage}
-          id={0}
-          cost={powerUpCost[0]}
-          onClick={() => {
-            buyPowerUp(0);
-          }}
-        />
-        <PowerUp
-          show={powerUpOpacity[1]}
-          image={doggoUpgradeImage}
-          id={1}
-          cost={powerUpCost[1]}
-          onClick={() => {
-            buyPowerUp(1);
-          }}
-        />
-        <PowerUp
-          show={powerUpOpacity[2]}
-          image={dobermanUpgradeImage}
-          id={2}
-          cost={powerUpCost[2]}
-          onClick={() => {
-            buyPowerUp(2);
-          }}
-        />
-        <PowerUp
-          show={powerUpOpacity[3]}
-          image={brownDoggoUpgradeImage}
-          id={3}
-          cost={powerUpCost[3]}
-          onClick={() => {
-            buyPowerUp(3);
-          }}
-        />
-        <PowerUp
-          show={powerUpOpacity[4]}
-          image={catUpgrade}
-          id={4}
-          cost={powerUpCost[4]}
-          onClick={() => {
-            buyPowerUp(4);
-          }}
-        />
-        <PowerUp
-          show={powerUpOpacity[5]}
-          image={birdUpgrade}
-          id={5}
-          cost={powerUpCost[5]}
-          onClick={() => {
-            buyPowerUp();
-          }}
-        />
+        <div className=" flex flex-nowrap justify-between items-center px-4 w-full h-[9svh] mt-[1rem]">
+          <PowerUp
+            show={powerUpOpacity[0]}
+            image={mouseBuffImage}
+            id={0}
+            cost={powerUpCost[0]}
+            onClick={() => {
+              buyPowerUp(0);
+            }}
+          />
+          <PowerUp
+            show={powerUpOpacity[1]}
+            image={doggoUpgradeImage}
+            id={1}
+            cost={powerUpCost[1]}
+            onClick={() => {
+              buyPowerUp(1);
+            }}
+          />
+          <PowerUp
+            show={powerUpOpacity[2]}
+            image={dobermanUpgradeImage}
+            id={2}
+            cost={powerUpCost[2]}
+            onClick={() => {
+              buyPowerUp(2);
+            }}
+          />
+          <PowerUp
+            show={powerUpOpacity[3]}
+            image={brownDoggoUpgradeImage}
+            id={3}
+            cost={powerUpCost[3]}
+            onClick={() => {
+              buyPowerUp(3);
+            }}
+          />
+          <PowerUp
+            show={powerUpOpacity[4]}
+            image={catUpgrade}
+            id={4}
+            cost={powerUpCost[4]}
+            onClick={() => {
+              buyPowerUp(4);
+            }}
+          />
+          <PowerUp
+            show={powerUpOpacity[5]}
+            image={birdUpgrade}
+            id={5}
+            cost={powerUpCost[5]}
+            onClick={() => {
+              buyPowerUp();
+            }}
+          />
+        </div>
       </div>
       <div className="flex flex-col justify-between items-center w-full h-[67svh]">
         <Upgrade

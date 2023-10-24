@@ -198,7 +198,6 @@ const MiddleSide = (props) => {
             />
           </div>
         </div>
-      
     </div>
   );
 };
