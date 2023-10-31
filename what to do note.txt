@@ -1,0 +1,6 @@
+What needs to be stored in localStorage
+- Dogoos number
+- How much doggos u get per click
+- Numbers of powerups
+- Numbers of upgrades
+- Prices of upgrades and powerups

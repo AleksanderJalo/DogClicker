@@ -14,20 +14,28 @@ import farmMenu from "./images/farm.svg";
 import coinMenu from "./images/coin.svg";
 function App() {
   const [mobileMenu, setMobileMenu] = useState("Dog");
-  const savedDogs = JSON.parse(localStorage.getItem("DOGGO_NUMBER"));
-  const [doggos, setDoggos] = useState(savedDogs || 0);
-  const [clickAdd, setClickAdd] = useState(1);
   const [doggosPerSecond, setDoggosPerSecond] = useState(0.000000001);
   const [powerUpMultiplyer, setPowerUpMultiplyer] = useState([
     1, 1, 1, 1, 1, 1,
   ]);
   const upgradesPowers = [0.1, 1, 8, 47, 260];
   const [upgradesQuantities, setUpgradesQuantities] = useState([0, 0, 0, 0, 0]);
+
+  const savedDogs = JSON.parse(localStorage.getItem("DOGGO_NUMBER"));
+  const [doggos, setDoggos] = useState(savedDogs || 0);
+
+  const savedClickAdd = JSON.parse(localStorage.getItem("DOGS_FOR_CLICK"));
+
+  const [clickAdd, setClickAdd] = useState(savedClickAdd || 1);
+
   useEffect(() => {
-    window.localStorage.setItem("DOGGO_NUMBER", JSON.stringify(doggos))
+    localStorage.setItem("DOGGO_NUMBER", JSON.stringify(doggos));
   }, [doggos]);
-  
-  
+
+  useEffect(() => {
+    localStorage.setItem("DOGS_FOR_CLICK", JSON.stringify(clickAdd));
+  }, [clickAdd]);
+
   useEffect(() => {
     const interval = setInterval(() => {
       setDoggos((prev) => prev + doggosPerSecond / 10);
