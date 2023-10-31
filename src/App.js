@@ -14,15 +14,20 @@ import farmMenu from "./images/farm.svg";
 import coinMenu from "./images/coin.svg";
 function App() {
   const [mobileMenu, setMobileMenu] = useState("Dog");
-  const [doggos, setDoggos] = useState(0);
+  const savedDogs = JSON.parse(localStorage.getItem("DOGGO_NUMBER"));
+  const [doggos, setDoggos] = useState(savedDogs || 0);
   const [clickAdd, setClickAdd] = useState(1);
-  const [doggosPerSecond, setDoggosPerSecond] = useState(0);
+  const [doggosPerSecond, setDoggosPerSecond] = useState(0.000000001);
   const [powerUpMultiplyer, setPowerUpMultiplyer] = useState([
     1, 1, 1, 1, 1, 1,
   ]);
   const upgradesPowers = [0.1, 1, 8, 47, 260];
   const [upgradesQuantities, setUpgradesQuantities] = useState([0, 0, 0, 0, 0]);
-
+  useEffect(() => {
+    window.localStorage.setItem("DOGGO_NUMBER", JSON.stringify(doggos))
+  }, [doggos]);
+  
+  
   useEffect(() => {
     const interval = setInterval(() => {
       setDoggos((prev) => prev + doggosPerSecond / 10);
@@ -86,7 +91,7 @@ function App() {
           />
           DOGGO{" "}
           <div>
-            <span className="text-slate-400"> C</span>LICKER
+            <span className="text-red-600"> C</span>LICKER
           </div>
         </div>
         <div className="h-[85vh] flex">

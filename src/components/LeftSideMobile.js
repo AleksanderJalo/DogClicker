@@ -25,7 +25,7 @@ const LeftSideMobile = (props) => {
         </div>
       </div>
       <div className="w-full h-[8svh] bg-black bg-opacity-40 text-white flex flex-col justify-center items-center">
-        <div className="text-[1rem]"> {props.doggosNumber} DOGGOS</div>
+        <div className="text-[1rem]"> {Math.floor(props.doggosNumber)} DOGGOS</div>
         <div className="text-[0.7rem]">CLICK - 1 DOG</div>
       </div>
       <div
