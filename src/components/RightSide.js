@@ -34,7 +34,9 @@ const RightSide = (props) => {
   const [upgradeCost, setUpgradeCost] = useState([
     10, 100, 1100, 12000, 130000,
   ]);
-  const [ownedUpgrades, setOwnedUpgrades] = useState([0, 0, 0, 0, 0]);
+  
+  const [ownedUpgrades, setOwnedUpgrades] = useState(props.upgradesQuantities);
+
 
   useEffect(() => {
     for (let i = 0; i < powerUpCost.length; i++) {
@@ -94,9 +96,6 @@ const RightSide = (props) => {
       let upgradeCostUpdated = upgradeCost;
       upgradeCostUpdated[id] = upgradeCostUpdated[id] * 1.15;
       setUpgradeCost(upgradeCostUpdated);
-      let ownedUpdatesUpdated = ownedUpgrades;
-      ownedUpdatesUpdated[id] += 1;
-      setOwnedUpgrades(ownedUpdatesUpdated);
     }
   };
   return (

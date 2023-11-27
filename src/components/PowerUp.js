@@ -3,7 +3,7 @@ const PowerUp = (props) => {
   return (
     <div
       onClick={props.onClick}
-      className="h-[9svh] flex flex-col justify-center items-center lg:gap-2"
+      className="h-[10.5svh] flex flex-col justify-center items-center lg:gap-2"
     >
       <img
         className={`h-[35%] sm:h-[45%] md:h-[80%] lg:h-[100%] ${props.show ? "opacity-100" : "opacity-50"}`}

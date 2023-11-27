@@ -6,6 +6,7 @@ import RightSide from "./components/RightSide";
 import LeftSideMobile from "./components/LeftSideMobile";
 import MiddleSideMobile from "./components/MiddleSideMobile";
 import RightSideMobile from "./components/RightSideMobile";
+import theo from "./images/dog1.png";
 import pegi from "./images/dog2.png";
 import rubi from "./images/dog3.png";
 import { useEffect } from "react";
@@ -13,13 +14,19 @@ import dogMenu from "./images/dogMenu.svg";
 import farmMenu from "./images/farm.svg";
 import coinMenu from "./images/coin.svg";
 function App() {
-  const [mobileMenu, setMobileMenu] = useState("Dog");
-  const [doggosPerSecond, setDoggosPerSecond] = useState(0.000000001);
+  const [mobileMenu, setMobileMenu] = useState("Dog"); 
+  const [pegiClicked, setPegiClicked] = useState(false);
   const [powerUpMultiplyer, setPowerUpMultiplyer] = useState([
     1, 1, 1, 1, 1, 1,
   ]);
   const upgradesPowers = [0.1, 1, 8, 47, 260];
-  const [upgradesQuantities, setUpgradesQuantities] = useState([0, 0, 0, 0, 0]);
+
+  const savedUpgradesQuantities = JSON.parse(
+    localStorage.getItem("UPGRADES_QUANTITIES")
+  );
+  const [upgradesQuantities, setUpgradesQuantities] = useState(
+    savedUpgradesQuantities || [0, 0, 0, 0, 0]
+  );
 
   const savedDogs = JSON.parse(localStorage.getItem("DOGGO_NUMBER"));
   const [doggos, setDoggos] = useState(savedDogs || 0);
@@ -27,7 +34,7 @@ function App() {
   const savedClickAdd = JSON.parse(localStorage.getItem("DOGS_FOR_CLICK"));
 
   const [clickAdd, setClickAdd] = useState(savedClickAdd || 1);
-
+  const [doggosPerSecond, setDoggosPerSecond] = useState(0.000000001);
   useEffect(() => {
     localStorage.setItem("DOGGO_NUMBER", JSON.stringify(doggos));
   }, [doggos]);
@@ -35,6 +42,13 @@ function App() {
   useEffect(() => {
     localStorage.setItem("DOGS_FOR_CLICK", JSON.stringify(clickAdd));
   }, [clickAdd]);
+
+  useEffect(() => {
+    localStorage.setItem(
+      "UPGRADES_QUANTITIES",
+      JSON.stringify(upgradesQuantities)
+    );
+  }, [upgradesQuantities]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -58,6 +72,11 @@ function App() {
   const deleteDoggos = (howMany) => {
     setDoggos((prev) => prev - howMany);
   };
+
+  const onPegiClick = () => {
+    setPegiClicked(!pegiClicked);
+  };
+
   const onPowerUpBuy = (id) => {
     let newPowerUpMultiplyer = powerUpMultiplyer;
     newPowerUpMultiplyer[id] = newPowerUpMultiplyer[id] * 2;
@@ -77,21 +96,33 @@ function App() {
   };
 
   const onUpgradeBuy = (id) => {
-    let newUpgradesQuantities = upgradesQuantities;
-    newUpgradesQuantities[id] += 1;
-    setUpgradesQuantities(newUpgradesQuantities);
+    setUpgradesQuantities((prevUpgradesQuantitnies) => {
+      let newUpgradesQuantities = [...prevUpgradesQuantitnies];
+      newUpgradesQuantities[id] += 1;
+      return newUpgradesQuantities;
+    }); 
     refreshDoggosPerSecond();
   };
 
   return (
-    <div className="min-h-screen w-full flex flex-col font-lalezar text-center select-none max-h-screen">
+    <div class-Name="min-h-screen w-full flex flex-col font-lalezar text-center select-none max-h-screen">
       <div className="portrait:hidden">
         <div className=" h-[15svh] w-full flex text-[2rem] lg:text-[3.5rem]  text-white bg-black justify-center items-center gap-3 relative">
-          <img
-            className="absolute left-12 bottom-0 h-4/5"
-            src={pegi}
-            alt="pegi"
-          />
+          {!pegiClicked ? (
+            <img
+              className="absolute left-12 bottom-0 h-4/5"
+              src={pegi}
+              alt="pegi"
+              onClick={onPegiClick}
+            />
+          ) : (
+            <img
+              className="absolute left-12 bottom-2 h-4/5"
+              src={theo}
+              alt="theo"
+              onClick={onPegiClick}
+            />
+          )}
           <img
             className="absolute right-12 bottom-1 h-4/5"
             src={rubi}
@@ -107,6 +138,7 @@ function App() {
             doggosNumber={doggos}
             onDogClick={onDoggoClick}
             clickAdd={clickAdd}
+            pegiClicked={pegiClicked}
           />
           <MiddleSide
             doggosPerSecond={doggosPerSecond}
@@ -118,6 +150,7 @@ function App() {
             betterClick={betterClick}
             onUpgradeBuy={onUpgradeBuy}
             onPowerUpBuy={onPowerUpBuy}
+            upgradesQuantities={upgradesQuantities}
           />
         </div>
       </div>
