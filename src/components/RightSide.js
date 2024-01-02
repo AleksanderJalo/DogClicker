@@ -146,7 +146,7 @@ const RightSide = (props) => {
             id={5}
             cost={powerUpCost[5]}
             onClick={() => {
-              buyPowerUp();
+              buyPowerUp(5);
             }}
           />
         </div>

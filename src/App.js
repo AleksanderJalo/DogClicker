@@ -28,7 +28,7 @@ function App() {
     localStorage.getItem("POWER_UP_QUANTITY")
   );
   const [powerUpQuantity, setPowerUpQuantity] = useState(
-    savedPowerUpQuantity || [0, 0, 0, 0, 0]
+    savedPowerUpQuantity || [0, 0, 0, 0, 0, 0]
   );
 
   const upgradesPowers = [0.1, 1, 8, 47, 260];
