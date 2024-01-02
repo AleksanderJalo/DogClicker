@@ -44,16 +44,25 @@ function App() {
   const [doggos, setDoggos] = useState(savedDogs || 0);
 
   const savedClickAdd = JSON.parse(localStorage.getItem("DOGS_FOR_CLICK"));
-
   const [clickAdd, setClickAdd] = useState(savedClickAdd || 1);
+
   const [doggosPerSecond, setDoggosPerSecond] = useState(0.000000001);
+  const savedClickCost = JSON.parse(localStorage.getItem("CLICK_COST"));
   const [powerUpCost, setPowerUpCost] = useState([
-    clickAdd > 1 ? 10 * clickAdd * 4 : 10,
+    savedClickCost || 10,
     powerUpQuantity[0] > 0 ? powerUpQuantity[0] * 100 * 4 : 100,
     powerUpQuantity[1] > 0 ? powerUpQuantity[1] * 1000 * 4 : 1000,
     powerUpQuantity[2] > 0 ? powerUpQuantity[2] * 11000 * 4 : 11000,
     powerUpQuantity[3] > 0 ? powerUpQuantity[3] * 120000 * 4 : 120000,
     powerUpQuantity[4] > 0 ? powerUpQuantity[4] * 1300000 * 4 : 1300000,
+  ]);
+
+  const [upgradeCost, setUpgradeCost] = useState([
+    upgradesQuantities[0] > 0 ? upgradesQuantities[0] * 10 * 1.2 : 10,
+    upgradesQuantities[1] > 0 ? upgradesQuantities[1] * 100 * 1.2 : 100,
+    upgradesQuantities[2] > 0 ? upgradesQuantities[2] * 1100 * 1.2 : 1100,
+    upgradesQuantities[3] > 0 ? upgradesQuantities[3] * 12000 * 1.2 : 12000,
+    upgradesQuantities[4] > 0 ? upgradesQuantities[4] * 130000 * 1.2 : 130000,
   ]);
 
   const refreshDoggosPerSecond = () => {
@@ -64,7 +73,11 @@ function App() {
         powerUpMultiplier[i] * upgradesQuantities[i] * upgrade;
       i++;
     }
-    setDoggosPerSecond(newDoggosPerSecond);
+    if (newDoggosPerSecond === 0) {
+      setDoggosPerSecond(0.000000000001);
+    } else {
+      setDoggosPerSecond(newDoggosPerSecond);
+    }
   };
 
   useEffect(() => {
@@ -106,6 +119,7 @@ function App() {
     let newPowerUpCost = [...powerUpCost];
     newPowerUpCost[0] = newPowerUpCost[0] * 4;
     setPowerUpCost(newPowerUpCost);
+    localStorage.setItem("CLICK_COST", JSON.stringify(newPowerUpCost[0]));
     setClickAdd((prev) => prev * 2);
   };
 
@@ -130,11 +144,12 @@ function App() {
   };
 
   const onUpgradeBuy = (id) => {
-    setUpgradesQuantities((prevUpgradesQuantitnies) => {
-      let newUpgradesQuantities = [...prevUpgradesQuantitnies];
-      newUpgradesQuantities[id] += 1;
-      return newUpgradesQuantities;
-    });
+    let newUpgradesQuantities = [...upgradesQuantities];
+    newUpgradesQuantities[id] += 1;
+    let newUpgradeCost = [...upgradeCost];
+    newUpgradeCost[id] = newUpgradeCost[id] * 1.2;
+    setUpgradeCost(newUpgradeCost);
+    setUpgradesQuantities(newUpgradesQuantities);
   };
   useEffect(() => {
     localStorage.setItem(
@@ -150,7 +165,7 @@ function App() {
   return (
     <div className="min-h-screen w-full flex flex-col font-lalezar text-center select-none max-h-screen">
       <div className="portrait:hidden">
-        <div className=" h-[15svh] w-full flex text-[2rem] lg:text-[3.5rem]  text-white bg-black justify-center items-center gap-3 relative">
+        <div className=" h-[15svh] w-full flex text-[2rem] xl:text-[3.5rem]  text-white bg-black justify-center items-center gap-3 relative">
           {!pegiClicked ? (
             <img
               className="absolute left-12 bottom-0 h-4/5"
@@ -195,6 +210,7 @@ function App() {
             onPowerUpBuy={onPowerUpBuy}
             powerUpCost={powerUpCost}
             upgradesQuantities={upgradesQuantities}
+            upgradeCost={upgradeCost}
           />
         </div>
       </div>

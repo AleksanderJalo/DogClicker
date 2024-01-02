@@ -29,10 +29,10 @@ const LeftSide = (props) => {
       </div>
 
       <div className="w-full h-[8svh] bg-black bg-opacity-40 text-white py-3 flex flex-col justify-center items-center">
-        <div className="text-[1rem] lg:text-[1.2rem] xl:text-[1.5rem]">
+        <div className="text-[0.8rem] lg:text-[1.2rem] xl:text-[1.5rem]">
           {Math.floor(props.doggosNumber)} DOGGOS
         </div>
-        <div className="text-[0.8rem] lg:text-[1rem] xl:text-[1rem]">
+        <div className="text-[0.6rem] lg:text-[0.8rem] xl:text-[1rem]">
           CLICK - {props.clickAdd} DOG
         </div>
       </div>

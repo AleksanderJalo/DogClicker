@@ -30,9 +30,7 @@ const RightSide = (props) => {
   ]);
   const powerUpCost = props.powerUpCost;
 
-  const [upgradeCost, setUpgradeCost] = useState([
-    10, 100, 1100, 12000, 130000,
-  ]);
+  const upgradeCost = props.upgradeCost;
 
   const ownedUpgrades = props.upgradesQuantities;
 
@@ -65,6 +63,8 @@ const RightSide = (props) => {
     powerUpOpacity,
     upgradeCost,
     upgradesOpacity,
+    props.onPowerUpBuy,
+    setPowerUpOpacity
   ]);
 
   const buyPowerUp = (id) => {
@@ -86,15 +86,12 @@ const RightSide = (props) => {
     if (props.doggosNumber >= Math.floor(upgradeCost[id])) {
       props.deleteDoggos(Math.floor(upgradeCost[id]));
       props.onUpgradeBuy(id);
-      let upgradeCostUpdated = upgradeCost;
-      upgradeCostUpdated[id] = upgradeCostUpdated[id] * 1.2;
-      setUpgradeCost(upgradeCostUpdated);
     }
   };
   return (
     <div className="w-1/3 bg-[#90CCF4] border-l-8 border-black flex flex-col  items-center">
       <div className="w-full bg-black bg-opacity-50  border-b-4 border-black h-[18vh] flex flex-col items-center justify-between">
-        <div className="text-white py-1 lg:py-2  xl:py-3 border-4 border-yellow-700 px-6 rounded-lg bg-opacity-60 bg-black mt-[0.2rem] lg:mt-[0.4rem] text-[0.6rem] lg:[text-0.8rem] xl:text-[1rem] h-[6svh] flex justify-center items-center">
+        <div className="text-white py-0.6rem lg:py-1rem  xl:py-3 border-4 border-yellow-700 px-6 rounded-lg bg-opacity-60 bg-black mt-[0.2rem] lg:mt-[0.4rem] text-[0.6rem] lg:[text-0.8rem] xl:text-[1rem] h-[6svh] flex justify-center items-center">
           Power Ups
         </div>
         <div className=" flex flex-nowrap justify-between items-center px-4 w-full h-[9svh] mt-[0.3rem] md:my-0.5rem lg:mt-[0.8rem]">

@@ -10,7 +10,7 @@ const PowerUp = (props) => {
         src={props.image}
         alt="Power Up"
       />
-      <div className="text-white font-barlow text-[0.6rem] xl:text-[0.8rem] mb-[0.5rem]">{props.cost}</div>
+      <div className="text-white font-barlow text-0.4rem lg:text-[0.6rem] xl:text-[0.8rem] mb-[0.7rem]">{props.cost}</div>
     </div>
   );
 };
