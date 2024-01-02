@@ -14,11 +14,15 @@ import dogMenu from "./images/dogMenu.svg";
 import farmMenu from "./images/farm.svg";
 import coinMenu from "./images/coin.svg";
 function App() {
-  const [mobileMenu, setMobileMenu] = useState("Dog"); 
+  const [mobileMenu, setMobileMenu] = useState("Dog");
   const [pegiClicked, setPegiClicked] = useState(false);
-  const [powerUpMultiplyer, setPowerUpMultiplyer] = useState([
-    1, 1, 1, 1, 1, 1,
-  ]);
+
+  const savedPowerUpMultiplier = JSON.parse(
+    localStorage.getItem("POWER_UP_MULTIPLIER")
+  );
+  const [powerUpMultiplier, setPowerUpMultiplier] = useState(
+    savedPowerUpMultiplier || [1, 1, 1, 1, 1, 1]
+  );
   const upgradesPowers = [0.1, 1, 8, 47, 260];
 
   const savedUpgradesQuantities = JSON.parse(
@@ -35,6 +39,18 @@ function App() {
 
   const [clickAdd, setClickAdd] = useState(savedClickAdd || 1);
   const [doggosPerSecond, setDoggosPerSecond] = useState(0.000000001);
+
+  const refreshDoggosPerSecond = () => {
+    let i = 0;
+    let newDoggosPerSecond = 0;
+    for (const upgrade of upgradesPowers) {
+      newDoggosPerSecond +=
+        powerUpMultiplier[i] * upgradesQuantities[i] * upgrade;
+      i++;
+    }
+    setDoggosPerSecond(newDoggosPerSecond);
+  };
+
   useEffect(() => {
     localStorage.setItem("DOGGO_NUMBER", JSON.stringify(doggos));
   }, [doggos]);
@@ -58,6 +74,7 @@ function App() {
       clearInterval(interval);
     };
   }, [doggos, upgradesQuantities, doggosPerSecond]);
+
   const mobileMenuHandler = (page) => {
     setMobileMenu(page);
   };
@@ -74,25 +91,14 @@ function App() {
   };
 
   const onPegiClick = () => {
-    setPegiClicked(!pegiClicked);
+    setPegiClicked((prev) => !prev);
   };
 
   const onPowerUpBuy = (id) => {
-    let newPowerUpMultiplyer = powerUpMultiplyer;
+    let newPowerUpMultiplyer = [...powerUpMultiplier];
     newPowerUpMultiplyer[id] = newPowerUpMultiplyer[id] * 2;
-    setPowerUpMultiplyer(newPowerUpMultiplyer);
-    refreshDoggosPerSecond();
-  };
-
-  const refreshDoggosPerSecond = () => {
-    let i = 0;
-    let newDoggosPerSecond = 0;
-    for (const upgrade of upgradesPowers) {
-      newDoggosPerSecond +=
-        powerUpMultiplyer[i] * upgradesQuantities[i] * upgrade;
-      i++;
-    }
-    setDoggosPerSecond(newDoggosPerSecond);
+    setPowerUpMultiplier(newPowerUpMultiplyer);
+    console.log(powerUpMultiplier);
   };
 
   const onUpgradeBuy = (id) => {
@@ -100,12 +106,20 @@ function App() {
       let newUpgradesQuantities = [...prevUpgradesQuantitnies];
       newUpgradesQuantities[id] += 1;
       return newUpgradesQuantities;
-    }); 
-    refreshDoggosPerSecond();
+    });
   };
+  useEffect(() => {
+    localStorage.setItem(
+      "POWER_UP_MULTIPLIER",
+      JSON.stringify(powerUpMultiplier)
+    );
+  }, [powerUpMultiplier]);
+  useEffect(() => {
+    refreshDoggosPerSecond();
+  },[upgradesQuantities,powerUpMultiplier, refreshDoggosPerSecond])
 
   return (
-    <div class-Name="min-h-screen w-full flex flex-col font-lalezar text-center select-none max-h-screen">
+    <div className="min-h-screen w-full flex flex-col font-lalezar text-center select-none max-h-screen">
       <div className="portrait:hidden">
         <div className=" h-[15svh] w-full flex text-[2rem] lg:text-[3.5rem]  text-white bg-black justify-center items-center gap-3 relative">
           {!pegiClicked ? (
