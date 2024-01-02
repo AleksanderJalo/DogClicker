@@ -21,8 +21,16 @@ function App() {
     localStorage.getItem("POWER_UP_MULTIPLIER")
   );
   const [powerUpMultiplier, setPowerUpMultiplier] = useState(
-    savedPowerUpMultiplier || [1, 1, 1, 1, 1, 1]
+    savedPowerUpMultiplier || [1, 1, 1, 1, 1]
   );
+
+  const savedPowerUpQuantity = JSON.parse(
+    localStorage.getItem("POWER_UP_QUANTITY")
+  );
+  const [powerUpQuantity, setPowerUpQuantity] = useState(
+    savedPowerUpQuantity || [0, 0, 0, 0, 0]
+  );
+
   const upgradesPowers = [0.1, 1, 8, 47, 260];
 
   const savedUpgradesQuantities = JSON.parse(
@@ -39,6 +47,14 @@ function App() {
 
   const [clickAdd, setClickAdd] = useState(savedClickAdd || 1);
   const [doggosPerSecond, setDoggosPerSecond] = useState(0.000000001);
+  const [powerUpCost, setPowerUpCost] = useState([
+    clickAdd > 1 ? 10 * clickAdd * 4 : 10,
+    powerUpQuantity[0] > 0 ? powerUpQuantity[0] * 100 * 4 : 100,
+    powerUpQuantity[1] > 0 ? powerUpQuantity[1] * 1000 * 4 : 1000,
+    powerUpQuantity[2] > 0 ? powerUpQuantity[2] * 11000 * 4 : 11000,
+    powerUpQuantity[3] > 0 ? powerUpQuantity[3] * 120000 * 4 : 120000,
+    powerUpQuantity[4] > 0 ? powerUpQuantity[4] * 1300000 * 4 : 1300000,
+  ]);
 
   const refreshDoggosPerSecond = () => {
     let i = 0;
@@ -50,6 +66,10 @@ function App() {
     }
     setDoggosPerSecond(newDoggosPerSecond);
   };
+
+  useEffect(() => {
+    localStorage.setItem("POWER_UP_QUANTITY", JSON.stringify(powerUpQuantity));
+  }, [powerUpQuantity]);
 
   useEffect(() => {
     localStorage.setItem("DOGGO_NUMBER", JSON.stringify(doggos));
@@ -83,6 +103,9 @@ function App() {
     setDoggos((prev) => prev + clickAdd);
   };
   const betterClick = () => {
+    let newPowerUpCost = [...powerUpCost];
+    newPowerUpCost[0] = newPowerUpCost[0] * 4;
+    setPowerUpCost(newPowerUpCost);
     setClickAdd((prev) => prev * 2);
   };
 
@@ -97,8 +120,13 @@ function App() {
   const onPowerUpBuy = (id) => {
     let newPowerUpMultiplyer = [...powerUpMultiplier];
     newPowerUpMultiplyer[id] = newPowerUpMultiplyer[id] * 2;
+    let newPowerUpQuantity = [...powerUpQuantity];
+    newPowerUpQuantity[id] += 1;
+    let newPowerUpCost = [...powerUpCost];
+    newPowerUpCost[id + 1] = newPowerUpCost[id + 1] * 4;
+    setPowerUpCost(newPowerUpCost);
+    setPowerUpQuantity(newPowerUpQuantity);
     setPowerUpMultiplier(newPowerUpMultiplyer);
-    console.log(powerUpMultiplier);
   };
 
   const onUpgradeBuy = (id) => {
@@ -114,9 +142,10 @@ function App() {
       JSON.stringify(powerUpMultiplier)
     );
   }, [powerUpMultiplier]);
+
   useEffect(() => {
     refreshDoggosPerSecond();
-  },[upgradesQuantities,powerUpMultiplier, refreshDoggosPerSecond])
+  }, [upgradesQuantities, powerUpMultiplier]);
 
   return (
     <div className="min-h-screen w-full flex flex-col font-lalezar text-center select-none max-h-screen">
@@ -164,6 +193,7 @@ function App() {
             betterClick={betterClick}
             onUpgradeBuy={onUpgradeBuy}
             onPowerUpBuy={onPowerUpBuy}
+            powerUpCost={powerUpCost}
             upgradesQuantities={upgradesQuantities}
           />
         </div>

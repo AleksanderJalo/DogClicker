@@ -28,14 +28,13 @@ const RightSide = (props) => {
     false,
     false,
   ]);
-  const [powerUpCost, setPowerUpCost] = useState([
-    10, 100, 1000, 11000, 120000, 1300000,
-  ]);
+  const powerUpCost = props.powerUpCost;
+
   const [upgradeCost, setUpgradeCost] = useState([
     10, 100, 1100, 12000, 130000,
   ]);
 
-  const [ownedUpgrades] = useState(props.upgradesQuantities);
+  const ownedUpgrades = props.upgradesQuantities;
 
   useEffect(() => {
     for (let i = 0; i < powerUpCost.length; i++) {
@@ -73,17 +72,12 @@ const RightSide = (props) => {
       if (props.doggosNumber >= powerUpCost[id]) {
         props.betterClick();
         props.deleteDoggos(powerUpCost[id]);
-        let powerUpsCostUpdated = powerUpCost;
-        powerUpsCostUpdated[id] = powerUpsCostUpdated[id] * 4;
-        setPowerUpCost(powerUpsCostUpdated);
       }
     } else {
       if (props.doggosNumber >= powerUpCost[id]) {
         props.deleteDoggos(powerUpCost[id]);
         props.onPowerUpBuy(id - 1);
-        let powerUpsCostUpdated = powerUpCost;
-        powerUpsCostUpdated[id] = powerUpsCostUpdated[id] * 4;
-        setPowerUpCost(powerUpsCostUpdated);
+
       }
     }
   };
@@ -93,7 +87,7 @@ const RightSide = (props) => {
       props.deleteDoggos(Math.floor(upgradeCost[id]));
       props.onUpgradeBuy(id);
       let upgradeCostUpdated = upgradeCost;
-      upgradeCostUpdated[id] = upgradeCostUpdated[id] * 1.15;
+      upgradeCostUpdated[id] = upgradeCostUpdated[id] * 1.2;
       setUpgradeCost(upgradeCostUpdated);
     }
   };
