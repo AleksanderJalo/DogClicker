@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/DogClicker/static/css/main.adb200fa.css",
+    "main.js": "/DogClicker/static/js/main.4541d5aa.js",
+    "static/js/787.b407a47b.chunk.js": "/DogClicker/static/js/787.b407a47b.chunk.js",
+    "static/media/dog2.png": "/DogClicker/static/media/dog2.31981ebaf772fbd1621c.png",
+    "static/media/dog3.png": "/DogClicker/static/media/dog3.fe4dbb8c125598f114f7.png",
+    "static/media/dog1.png": "/DogClicker/static/media/dog1.ef49b5452d72cb6a1a75.png",
+    "static/media/Lalezar.ttf": "/DogClicker/static/media/Lalezar.4cbab4c9f26cf13014c6.ttf",
+    "static/media/dog4.png": "/DogClicker/static/media/dog4.da1cc4f2647d48ba0e53.png",
+    "static/media/Barlow.ttf": "/DogClicker/static/media/Barlow.2afd924bd5156ee485b9.ttf",
+    "static/media/Rowdies.ttf": "/DogClicker/static/media/Rowdies.c3e51820d6d0195a2ef9.ttf",
+    "static/media/dogMenu.svg": "/DogClicker/static/media/dogMenu.edc8948433e67a67deda338441dc3ea9.svg",
+    "static/media/farm.svg": "/DogClicker/static/media/farm.568cd078f681c6b42b002139f583b6fa.svg",
+    "index.html": "/DogClicker/index.html",
+    "static/media/coin.svg": "/DogClicker/static/media/coin.9fa303c1e5f6a00fa3a13bf2fbad43c4.svg",
+    "main.adb200fa.css.map": "/DogClicker/static/css/main.adb200fa.css.map",
+    "main.4541d5aa.js.map": "/DogClicker/static/js/main.4541d5aa.js.map",
+    "787.b407a47b.chunk.js.map": "/DogClicker/static/js/787.b407a47b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.adb200fa.css",
+    "static/js/main.4541d5aa.js"
+  ]
+}
