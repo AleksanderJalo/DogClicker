@@ -1,6 +1,6 @@
 import React from "react";
 import theo from "../images/dog1.png";
-import pegi from "../images/dog2.png"
+import pegi from "../images/dog2.png";
 import { useState } from "react";
 import tosia from "../images/dog4.png";
 import DoggoClickText from "./DoggoClickText";
@@ -54,7 +54,11 @@ const LeftSide = (props) => {
             </motion.div>
           );
         })}
-        {!props.pegiClicked ? <img src={theo} alt="Theo" className="mr-8 h-full p-2" />: <img src={pegi} alt="Pegi" className="h-[85%]"/>}
+        {!props.pegiClicked ? (
+          <img src={theo} alt="Theo" className="mr-8 h-full p-2" />
+        ) : (
+          <img src={pegi} alt="Pegi" className="h-[85%]" />
+        )}
       </div>
       <img
         src={tosia}

@@ -152,9 +152,13 @@ const RightSideMobile = (props) => {
           />
         </div>
       </div>
-      <div className={`h-[61svh] flex flex-col items-center ${windowHeight > 750 ? "gap-[1rem]" : "gap-[0.8rem]"}  mt-[0.6rem] `}>
+      <div
+        className={`h-[61svh] flex flex-col items-center ${
+          windowHeight > 750 ? "gap-[1rem]" : "gap-[0.8rem]"
+        }  mt-[0.6rem] `}
+      >
         <div className="text-white text-[0.8rem] w-1/2 bg-black bg-opacity-50 p-2 border-4 border-black">
-        {Math.floor(props.doggosNumber)} doggos
+          {Math.floor(props.doggosNumber)} doggos
         </div>
         <UpgradeMobile
           show={upgradesOpacity[0]}
