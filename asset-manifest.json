@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/DogClicker/static/css/main.adb200fa.css",
-    "main.js": "/DogClicker/static/js/main.4541d5aa.js",
+    "main.css": "/DogClicker/static/css/main.1733a723.css",
+    "main.js": "/DogClicker/static/js/main.d43fc790.js",
     "static/js/787.b407a47b.chunk.js": "/DogClicker/static/js/787.b407a47b.chunk.js",
     "static/media/dog2.png": "/DogClicker/static/media/dog2.31981ebaf772fbd1621c.png",
     "static/media/dog3.png": "/DogClicker/static/media/dog3.fe4dbb8c125598f114f7.png",
@@ -14,12 +14,12 @@
     "static/media/farm.svg": "/DogClicker/static/media/farm.568cd078f681c6b42b002139f583b6fa.svg",
     "index.html": "/DogClicker/index.html",
     "static/media/coin.svg": "/DogClicker/static/media/coin.9fa303c1e5f6a00fa3a13bf2fbad43c4.svg",
-    "main.adb200fa.css.map": "/DogClicker/static/css/main.adb200fa.css.map",
-    "main.4541d5aa.js.map": "/DogClicker/static/js/main.4541d5aa.js.map",
+    "main.1733a723.css.map": "/DogClicker/static/css/main.1733a723.css.map",
+    "main.d43fc790.js.map": "/DogClicker/static/js/main.d43fc790.js.map",
     "787.b407a47b.chunk.js.map": "/DogClicker/static/js/787.b407a47b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.adb200fa.css",
-    "static/js/main.4541d5aa.js"
+    "static/css/main.1733a723.css",
+    "static/js/main.d43fc790.js"
   ]
 }
