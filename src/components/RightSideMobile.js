@@ -14,6 +14,7 @@ import PowerUpMobile from "./PowerUpMobile";
 import UpgradeMobile from "./UpgradeMobile";
 
 const RightSideMobile = (props) => {
+  const [windowHeight] = useState(window.innerHeight);
   const [powerUpOpacity, setPowerUpOpacity] = useState([
     false,
     false,
@@ -95,7 +96,7 @@ const RightSideMobile = (props) => {
       <div className="h-[8svh] w-full bg-black bg-opacity-40 text-white text-[1rem] flex items-center justify-center">
         Shop
       </div>
-      <div className="mt-[1rem] bg-black bg-opacity-50 w-full flex flex-col items-center gap-[0.9rem]">
+      <div className="h-[14svh] mt-[1rem] bg-black bg-opacity-50 w-full flex flex-col items-center gap-[0.9rem]">
         <div className="text-white mt-[0.4rem] text-[0.85rem]">
           Upgrades your workers x2
         </div>
@@ -151,7 +152,7 @@ const RightSideMobile = (props) => {
           />
         </div>
       </div>
-      <div className="h-[55svh] flex flex-col items-center justify-center gap-[1.5rem] mt-[1.3rem] ">
+      <div className={`h-[61svh] flex flex-col items-center ${windowHeight > 750 ? "gap-[1rem]" : "gap-[0.8rem]"}  mt-[0.6rem] `}>
         <div className="text-white text-[0.8rem] w-1/2 bg-black bg-opacity-50 p-2 border-4 border-black">
         {Math.floor(props.doggosNumber)} doggos
         </div>
