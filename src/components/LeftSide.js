@@ -33,7 +33,7 @@ const LeftSide = (props) => {
           {Math.floor(props.doggosNumber)} DOGGOS
         </div>
         <div className="text-[0.6rem] lg:text-[0.8rem] xl:text-[1rem]">
-          CLICK - {props.clickAdd} DOG
+          CLICK - {props.clickAdd} {props.clickAdd === 1 ? "DOG" : "DOGS"}
         </div>
       </div>
 

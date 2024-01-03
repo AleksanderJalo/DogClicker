@@ -18,7 +18,7 @@ const MiddleSide = (props) => {
 
       <div className="h-[8svh] w-full bg-black bg-opacity-50 flex justify-center items-center">
         <div className=" text-[1rem] lg:text-[1.2rem] xl:text-[1.5rem] text-white flex gap-2">
-          <div>{Math.round(props.doggosPerSecond * 10) / 10}</div> per Seconds
+          <div>{Math.round(props.doggosPerSecond * 10) / 10}</div> per Second
         </div>
         </div>
         <div className="h-[67svh] flex flex-col justify-between items-center w-full">

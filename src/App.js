@@ -218,7 +218,7 @@ function App() {
         <div className="h-[10svh] bg-black text-white text-[2rem] flex justify-center items-center gap-2">
           <div> DOGGO</div>{" "}
           <div>
-            <span className="text-slate-400"> C</span>LICKER
+            <span className="text-red-600"> C</span>LICKER
           </div>
         </div>
         <div className={`${mobileMenu === "Dog" ? "visible" : "hidden"}`}>
@@ -235,7 +235,16 @@ function App() {
           />
         </div>
         <div className={`${mobileMenu === "Shop" ? "visible" : "hidden"}`}>
-          <RightSideMobile />
+          <RightSideMobile
+            doggosNumber={doggos}
+            deleteDoggos={deleteDoggos}
+            betterClick={betterClick}
+            onUpgradeBuy={onUpgradeBuy}
+            onPowerUpBuy={onPowerUpBuy}
+            powerUpCost={powerUpCost}
+            upgradesQuantities={upgradesQuantities}
+            upgradeCost={upgradeCost}
+          />
         </div>
       </div>
       <div className="landscape:hidden h-[10svh]  w-full text-white flex ">

@@ -6,8 +6,8 @@ const PowerUpMobile = (props) => {
         setInfo(getPowerUpInfo(props.id));
     }, [props.id, setInfo]);
   return (
-      <div className="w-1/2 bg-gray-600">
-      <img src={props.image} alt="powerup image"/>
+    <div>
+      <img src={props.image} alt="PowerUp"/>
     </div>
   )
 }
