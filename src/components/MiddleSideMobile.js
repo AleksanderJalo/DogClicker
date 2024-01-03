@@ -9,11 +9,11 @@ import CatAnimation from "../images/upgrade art/Catanimation.gif";
 import BirdAnimation from "../images/upgrade art/Bird_animation.gif";
 const MiddleSideMobile = (props) => {
   return (
-    <div className="h-[80svh] bg-[#F78888] pt-[1rem]">
+    <div className="h-[83svh] bg-[#F78888] pt-[1rem]">
       <div className="w-full h-[10svh] bg-black bg-opacity-40 text-white flex flex-col justify-center items-center">
         <div className="text-[1.2rem] "> {Math.round(props.doggosPerSecond * 10) / 10}  DOGGOS per Second</div>
       </div>
-      <div className="h-[65svh] flex flex-col justify-between ">
+      <div className="h-[69svh] flex flex-col justify-between ">
         <div className="relative w-full flex overflow-hidden mt-[0.8rem]  h-[10svh]">
           {Array(props.upgradesQuantities[0])
             .fill(0)

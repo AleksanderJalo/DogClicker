@@ -92,13 +92,12 @@ const RightSide = (props) => {
     <div className="w-1/3 bg-[#90CCF4] border-l-8 border-black flex flex-col  items-center">
       <div className="w-full bg-black bg-opacity-50  border-b-4 border-black h-[18vh] flex flex-col items-center justify-between">
         <div className="text-white py-0.6rem lg:py-1rem  xl:py-3 border-4 border-yellow-700 px-6 rounded-lg bg-opacity-60 bg-black mt-[0.2rem] lg:mt-[0.4rem] text-[0.6rem] lg:[text-0.8rem] xl:text-[1rem] h-[6svh] flex justify-center items-center">
-          Power Ups
+          Power Ups - Your Workers x2
         </div>
         <div className=" flex flex-nowrap justify-between items-center px-4 w-full h-[9svh] mt-[0.3rem] md:my-0.5rem lg:mt-[0.8rem]">
           <PowerUp
             show={powerUpOpacity[0]}
             image={mouseBuffImage}
-            id={0}
             cost={powerUpCost[0]}
             onClick={() => {
               buyPowerUp(0);
@@ -107,7 +106,6 @@ const RightSide = (props) => {
           <PowerUp
             show={powerUpOpacity[1]}
             image={doggoUpgradeImage}
-            id={1}
             cost={powerUpCost[1]}
             onClick={() => {
               buyPowerUp(1);
@@ -116,7 +114,6 @@ const RightSide = (props) => {
           <PowerUp
             show={powerUpOpacity[2]}
             image={dobermanUpgradeImage}
-            id={2}
             cost={powerUpCost[2]}
             onClick={() => {
               buyPowerUp(2);
@@ -125,7 +122,6 @@ const RightSide = (props) => {
           <PowerUp
             show={powerUpOpacity[3]}
             image={brownDoggoUpgradeImage}
-            id={3}
             cost={powerUpCost[3]}
             onClick={() => {
               buyPowerUp(3);
@@ -134,7 +130,6 @@ const RightSide = (props) => {
           <PowerUp
             show={powerUpOpacity[4]}
             image={catUpgrade}
-            id={4}
             cost={powerUpCost[4]}
             onClick={() => {
               buyPowerUp(4);
@@ -143,7 +138,6 @@ const RightSide = (props) => {
           <PowerUp
             show={powerUpOpacity[5]}
             image={birdUpgrade}
-            id={5}
             cost={powerUpCost[5]}
             onClick={() => {
               buyPowerUp(5);

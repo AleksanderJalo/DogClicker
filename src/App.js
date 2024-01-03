@@ -215,7 +215,7 @@ function App() {
         </div>
       </div>
       <div className="landscape:hidden">
-        <div className="h-[10svh] bg-black text-white text-[2rem] flex justify-center items-center gap-2">
+        <div className="h-[9svh] bg-black text-white text-[2rem] flex justify-center items-center gap-2">
           <div> DOGGO</div>{" "}
           <div>
             <span className="text-red-600"> C</span>LICKER
@@ -247,7 +247,7 @@ function App() {
           />
         </div>
       </div>
-      <div className="landscape:hidden h-[10svh]  w-full text-white flex ">
+      <div className="landscape:hidden h-[8svh]  w-full text-white flex ">
         <div
           className={`border-r-2 border-white flex justify-center items-center w-1/3 bg-black ${
             mobileMenu === "Dog" ? "bg-opacity-80" : ""

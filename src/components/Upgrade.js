@@ -8,7 +8,7 @@ const Upgrade = (props) => {
       <img
         src={props.image}
         alt="doggo"
-        className="h-4/5 bg-[#988D94] border-2 border-black p-1"
+        className="h-4/5 bg-[#988D94] border-2 border-black p-[0.3rem]"
       />
       <div className="flex flex-col gap-[0.01rem]">
         <div className="text-[0.5rem] lg:text-[0.8rem] xl:text-[1rem]">{props.text}</div>
